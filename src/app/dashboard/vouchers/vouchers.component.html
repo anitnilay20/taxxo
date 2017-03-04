@@ -1,0 +1,60 @@
+<div class="row vouchers-container">
+    <div class="col-sm-8 voucher-form-container">
+        <md-tab-group>
+            <md-tab label="Add Contra">
+                <br>
+                <md-select (change)="changeFirstAc($event)" placeholder="First Account">
+                    <md-option *ngFor="let ledger of ledgers" [value]="ledger.id">{{ ledger.name }}</md-option>
+                </md-select>
+                <md-select (change)="changeSecondAc($event)" placeholder="Second Account">
+                    <md-option *ngFor="let ledger of ledgers" [value]="ledger.id">{{ ledger.name }}</md-option>
+                </md-select>
+                <md-input-container>
+                    <input type="number" mdInput placeholder="Amount">
+                </md-input-container>
+                <md-input-container>
+                    <input type="text" mdInput placeholder="Narration">
+                </md-input-container>
+                <a md-fab (click)="addContra()">
+                    <md-icon>check</md-icon>
+                </a>
+            </md-tab>
+            <md-tab label="Add Payement">
+                <br>
+                <md-select (change)="changeFirstAc($event)" placeholder="First Account">
+                    <md-option *ngFor="let ledger of ledgers" [value]="ledger.id">{{ ledger.name }}</md-option>
+                </md-select>
+                <md-select (change)="changeSecondAc($event)" placeholder="Second Account">
+                    <md-option *ngFor="let ledger of ledgers" [value]="ledger.id">{{ ledger.name }}</md-option>
+                </md-select>
+                <md-input-container>
+                    <input type="number" mdInput placeholder="Amount">
+                </md-input-container>
+                <md-input-container>
+                    <input type="text" mdInput placeholder="Narration">
+                </md-input-container>
+                <a md-fab (click)="addPayement()">
+                    <md-icon>check</md-icon>
+                </a>
+            </md-tab>
+            <md-tab label="Add Receipt">
+                <br>
+                <md-select (change)="changeFirstAc($event)" placeholder="First Account">
+                    <md-option *ngFor="let ledger of ledgers" [value]="ledger.id">{{ ledger.name }}</md-option>
+                </md-select>
+                <md-select (change)="changeSecondAc($event)" placeholder="Second Account">
+                    <md-option *ngFor="let ledger of ledgers" [value]="ledger.id">{{ ledger.name }}</md-option>
+                </md-select>
+                <md-input-container>
+                    <input type="number" mdInput placeholder="Amount">
+                </md-input-container>
+                <md-input-container>
+                    <input type="text" mdInput placeholder="Narration">
+                </md-input-container>
+                <a md-fab (click)="addReceipt()">
+                    <md-icon>check</md-icon>
+                </a>
+            </md-tab>
+        </md-tab-group>
+    </div>
+</div>

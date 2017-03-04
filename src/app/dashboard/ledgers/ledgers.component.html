@@ -1,0 +1,20 @@
+<div class="row" class="ledger-container">
+    <div class="col-sm-8 ledger-form-container">
+        <md-tab-group>
+            <md-tab label="Available Ledgers">
+                <md-list-item *ngFor="let ledger of ledgers">{{ledger.name}}</md-list-item>
+            </md-tab>
+            <md-tab label="Add Ledgers">
+                <form [formGroup]="addLedgerForm">
+                    <md-input-container> <input mdInput type="text" formControlName="name" placeholder="Name Of Ledgers" required /></md-input-container>
+                    <md-input-container> <input mdInput type="number" formControlName="opening_balance" placeholder="Openbing Balance" required /></md-input-container>
+                    <md-select (change)="select_accounts($event)" placeholder="Slect Group">
+                        <md-option *ngFor="let account of accounts" [value]="account">{{ account }}</md-option>
+                    </md-select>
+                    <md-slide-toggle (change)="change_inventory()">Affects Inventory?</md-slide-toggle>
+                    <button (click)="addLedger()" md-button style="z-index: 1000;" type="submit" class="form-button">Submit</button>
+                </form>
+            </md-tab>
+        </md-tab-group>
+    </div>
+</div>

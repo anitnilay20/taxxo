@@ -1,0 +1,33 @@
+<div class="page-signup">
+    <div class="container container-fluid">
+        <div class="col-sm-6 image-container">
+            <img src="src/app/signup/img/main.svg" alt="some-image" height="540px" />
+        </div>
+        <div class="col-sm-6 form-container">
+            <form [formGroup]="signupform" (ngSubmit)="submit($event)">
+                <md-input-container>
+                    <input mdInput formControlName="name" type="text" [(ngModel)]="name" pInputText/>
+                </md-input-container>
+
+                <md-input-container>
+                    <input mdInput formControlName="email" type="email" size="25" [(ngModel)]="email" pInputText/>
+                </md-input-container>
+
+                <md-input-container>
+                    <input mdInput formControlName="phone" type="number" size="50" [(ngModel)]="phone" pInputText/>
+                </md-input-container>
+
+                <p-messages [value]="msgs"></p-messages>
+                <md-input-container>
+                    <input mdInput type="password" placeholder="Password" formControlName="password1" [(ngModel)]="password1" pInputText/>
+                </md-input-container>
+
+                <md-input-container>
+                    <input mdInput type="password" placeholder="Retype Password" formControlName="password2" [(ngModel)]="password2" pInputText/>
+                </md-input-container>
+
+                <button pButton type="button" (click)="onsubmit()" class="form-button">Sign Up</button>
+            </form>
+        </div>
+    </div>
+</div>

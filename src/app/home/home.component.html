@@ -1,0 +1,46 @@
+<header>
+  <h1>Taxxo</h1>
+  <nav class="navbar">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span style="font-size: 2em;" class="glyphicon glyphicon-align-justify"></span>                   
+        </button>
+      </div>
+      <div class="collapse navbar-collapse navbar-right" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">HOW IT WORKS</a></li>
+          <li><a href="#">ACCOUNTS</a></li>
+          <li><a href="#">LOGIN</a></li>
+          <li><a href="#">SIGN IN</a></li>
+        </ul>
+        <div class="clear"></div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<div class="container-fluid">
+  <div class="section1 col-sm-8">
+    <h2>Helping businesses</h2>
+    <h2>to track their money.</h2>
+    <h3>Manage Your bussinesses Accounts on a day to day basis</h3>
+    <h3>And help it grow bigger</h3>
+    
+    <form [formGroup]="signupform" (ngSubmit)="redirect_to_signup($event)">
+      <md-input-container>
+        <input mdInput placeholder="Name" formControlName="name" type="text" size="50" [(ngModel)]="name" required pInputText/>
+      </md-input-container>
+
+      <md-input-container>
+        <input mdInput placeholder="Email" formControlName="email" type="email" size="25" [(ngModel)]="email" required pInputText/>
+      </md-input-container>
+
+      <md-input-container>
+        <input mdInput placeholder="Phone Number" formControlName="phone" type="number" size="50" [(ngModel)]="phone" required pInputText/>
+      </md-input-container>
+
+      <button pButton type="submit" class="form-button">Try For Free</button>
+    </form>
+  </div>
+</div>
