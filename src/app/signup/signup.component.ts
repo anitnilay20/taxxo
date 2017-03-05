@@ -5,7 +5,7 @@ import {MessagesModule} from 'primeng/primeng';
 
 @Component({
   selector: 'signup',
-  templateUrl: 'Signup.component.html',
+  templateUrl: 'signup.component.html',
 })
 
 export class SignupComponent  implements OnInit{
