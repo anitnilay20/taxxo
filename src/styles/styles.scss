@@ -7,119 +7,121 @@ $color2:#02182B;
 @import '_loading-animation.scss';
 @import 'https://fonts.googleapis.com/css?family=Merriweather|Acme|Josefin+Sans';
 @import '../../node_modules/@angular/material/core/theming/_all-theme.scss';
-
+@import 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css';
 @include mat-core();
 $candy-app-primary: mat-palette($mat-red, 900);
-$candy-app-accent:  mat-palette($mat-amber, A400, A100, A200);
-$candy-app-warn:    mat-palette($mat-red, A200);
+$candy-app-accent: mat-palette($mat-amber, A400, A100, A200);
+$candy-app-warn: mat-palette($mat-red, A200);
 $candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-app-warn);
 @include angular-material-theme($candy-app-theme);
-
-
-@mixin form-input(){
-    input{
+@mixin form-input() {
+    input {
         border: none;
-        border-radius:0; 
+        border-radius: 0;
         margin: 5px;
         padding: 10px;
         width: 100%;
-        &:focus{
+        &:focus {
             outline: none;
             border: none;
         }
     }
-    .form-button{
+    .form-button {
         background: $highlight;
         border: none;
         margin: 5px;
         padding: 10px 10px;
         width: 100%;
-        &:hover{
+        &:hover {
             box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
             background: #f6a83c;
             text-decoration: none;
         }
     }
-    .mat-input-container{
+    .mat-input-container {
         width: 100%;
     }
 }
 
-
-body, html{
+body,
+html {
     padding: 0;
     margin: 0;
     font-family: 'Merriweather', serif;
 }
-h1,h2,h3,h4,h5{
+
+h1,
+h2,
+h3,
+h4,
+h5 {
     font-family: 'Acme', sans-serif;
 }
 
-header{
+header {
     background: $base-head;
     margin: 0;
     color: white;
     height: auto;
-    ul{
+    ul {
         float: right;
-        li{
+        li {
             display: inline-block;
             font-size: 1.3em;
             padding: 15px 15px;
-            &:hover{
+            &:hover {
                 background-color: $base-head-highlight;
                 border-bottom: $highlight solid 1px;
-
             }
-            a{
+            a {
                 color: white;
-                &:hover{
+                &:hover {
                     color: white;
                     text-decoration: none;
                     background-color: $base-head-highlight !important;
                 }
-                &:focus{
+                &:focus {
                     background-color: $base-head-highlight !important;
                 }
             }
         }
     }
-    h1{
+    h1 {
         float: left;
     }
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.section1{
+.section1 {
     @include form-input();
 }
 
-.clear{
+.clear {
     clear: both;
 }
 
-label{
+label {
     font-family: 'Josefin Sans', sans-serif;
     font-weight: 100;
 }
 
-body::-webkit-scrollbar
-{
-	width: 5px;
-	background-color:none;
+body::-webkit-scrollbar {
+    width: 5px;
+    background-color: none;
 }
 
-body::-webkit-scrollbar-thumb
-{
-	background-color: rgba(2, 24, 43,.5);	
-	background-image: -webkit-linear-gradient(45deg,
-	                                          rgba(255, 255, 255, .2) 25%,
-											  transparent 15%,
-											  transparent 30%,
-											  rgba(255, 255, 255, .2) 30%,
-											  rgba(255, 255, 255, .2) 55%,
-											  transparent 55%,
-											  transparent)
+body::-webkit-scrollbar-thumb {
+    background-color: rgba(2, 24, 43, .5);
+    background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 15%, transparent 30%, rgba(255, 255, 255, .2) 30%, rgba(255, 255, 255, .2) 55%, transparent 55%, transparent)
+}
+
+div[class^="col-sm-"] {
+    margin-bottom: 5px;
+}
+
+.no-padding {
+    padding: 0;
 }
 
 @import '_signup.scss';

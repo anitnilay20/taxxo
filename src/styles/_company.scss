@@ -1,18 +1,58 @@
-md-card{
-  width: 100%;
-  @include form-input();
-  padding-bottom: 20px;
-}
-.mat-grid-tile .mat-figure{
-  align-items:flex-start !important;
+.header-under {
+    background: none;
+    box-shadow: none;
+    color: $base-head;
 }
 
-.header-under{
-  background: none;
-  box-shadow: none;
-  color: $base-head;
+.mat-tab-body-content {
+    padding: 5px;
 }
 
-.mat-tab-body-content{
-  padding: 5px;
+.recent_activity {
+    ul {
+        border-left: $child-head 8px solid;
+        padding: 10px;
+        list-style: none;
+        li {
+            &:before {
+                content: '';
+                width: 10px;
+                left: 23px;
+                position: absolute;
+                min-height: 10px;
+                border: 2px $child-head solid;
+                border-radius: 100%;
+                background: $color2;
+                @media screen and (max-width: 700px) {
+                    left: 15px;
+                }
+            }
+            margin-bottom: 10px;
+            border: .2px solid #eee;
+            padding: 10px;
+            transition: .5s;
+            border-bottom-right-radius: 10px;
+            &:hover {
+                box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, .29);
+            }
+        }
+    }
+}
+
+.company-list {
+    cursor: pointer;
+    md-list-item {
+        &:hover {
+            background: $highlight;
+            color: $color2;
+        }
+    }
+}
+
+.coloumn-container {
+    padding: 0;
+}
+
+.company-form {
+    @include form-input();
 }

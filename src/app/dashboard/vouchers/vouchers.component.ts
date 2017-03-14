@@ -18,6 +18,7 @@ export class VouchersComponent implements OnInit {
     firstAc:number;
     secondAc:number;
     amount:number;
+    selectedCompany = localStorage.getItem('companyName');
     ngOnInit(){
         this.titleService.setTitle("Your Dashboard || Vouchers");
         this.getLedgers();

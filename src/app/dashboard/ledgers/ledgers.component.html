@@ -2,7 +2,9 @@
     <div class="col-sm-8 ledger-form-container">
         <md-tab-group>
             <md-tab label="Available Ledgers">
-                <md-list-item *ngFor="let ledger of ledgers">{{ledger.name}}</md-list-item>
+                <md-list class="ledger-list">
+                    <md-list-item (click)="selectLedger(ledger)" *ngFor="let ledger of ledgers">{{ledger.name}}</md-list-item>
+                </md-list>
             </md-tab>
             <md-tab label="Add Ledgers">
                 <form [formGroup]="addLedgerForm">
@@ -16,5 +18,18 @@
                 </form>
             </md-tab>
         </md-tab-group>
+    </div>
+    <div class="col-sm-4">
+        <md-card>
+            <h5 *ngIf="!selectedCompany">No company selected. Please Select a company from company tab.</h5>
+            <h5 *ngIf="selectedCompany">Using {{selectedCompany}}</h5>
+        </md-card>
+    </div>
+    <div *ngIf="selectedLedger" class="col-sm-8 animated fadeIn no-padding">
+        <md-card>
+            <h4>{{selectedLedger.name}}</h4>
+            <p>{{selectedLedger.opening_balance}}</p>
+            <p>{{selectedLedger.groups}}</p>
+        </md-card>
     </div>
 </div>

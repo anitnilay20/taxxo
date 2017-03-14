@@ -1,7 +1,7 @@
 <div class="row vouchers-container">
     <div class="col-sm-8 voucher-form-container">
         <md-tab-group>
-            <md-tab label="Add Contra">
+            <md-tab label="Contra">
                 <br>
                 <md-select (change)="changeFirstAc($event)" placeholder="First Account">
                     <md-option *ngFor="let ledger of ledgers" [value]="ledger.id">{{ ledger.name }}</md-option>
@@ -19,7 +19,7 @@
                     <md-icon>check</md-icon>
                 </a>
             </md-tab>
-            <md-tab label="Add Payement">
+            <md-tab label="Payement">
                 <br>
                 <md-select (change)="changeFirstAc($event)" placeholder="First Account">
                     <md-option *ngFor="let ledger of ledgers" [value]="ledger.id">{{ ledger.name }}</md-option>
@@ -37,7 +37,7 @@
                     <md-icon>check</md-icon>
                 </a>
             </md-tab>
-            <md-tab label="Add Receipt">
+            <md-tab label="Receipt">
                 <br>
                 <md-select (change)="changeFirstAc($event)" placeholder="First Account">
                     <md-option *ngFor="let ledger of ledgers" [value]="ledger.id">{{ ledger.name }}</md-option>
@@ -55,6 +55,16 @@
                     <md-icon>check</md-icon>
                 </a>
             </md-tab>
+            <md-tab label="Income">
+            </md-tab>
+            <md-tab label="Expenses">
+            </md-tab>
         </md-tab-group>
+    </div>
+    <div class="col-sm-4">
+        <md-card>
+            <h5 *ngIf="!selectedCompany">No company selected. Please Select a company from company tab.</h5>
+            <h5 *ngIf="selectedCompany">Using {{selectedCompany}}</h5>
+        </md-card>
     </div>
 </div>

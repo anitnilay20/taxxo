@@ -15,6 +15,7 @@ import {MdSnackBar} from '@angular/material';
 
 export class CompanyComponent implements OnInit {
     errorMessage: string;
+    selectedCompany:any;
     mode = 'Observable';
     companies : Company[];
     show_amounts_in_millions:boolean = false;
@@ -39,11 +40,14 @@ export class CompanyComponent implements OnInit {
   ngOnInit() {
     this.titleService.setTitle("Your Dashboard || Comapny");
     this.getCompany();
+    
   };
 
-  selectCompany(id:string,name:string){
-    localStorage.setItem("company",id);
-    this.snackbar.open("Using Company "+name,"X",{
+  selectCompany(company:Company){
+    localStorage.setItem("company",String(company.id));
+    localStorage.setItem("companyName",company.name);
+    this.selectedCompany = company;
+    this.snackbar.open("Using Company "+company.name,"X",{
       duration: 5000,
     });
   }

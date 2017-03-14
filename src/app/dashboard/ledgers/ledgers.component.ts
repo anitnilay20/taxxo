@@ -20,6 +20,8 @@ export class LedgersComponent implements OnInit {
   error:string;
   inventory:boolean;
   groups:string;
+  selectedLedger:Ledgers;
+  selectedCompany = localStorage.getItem('companyName');
   public addLedgerForm = this.fb.group({
     name : ["",Validators.required],
     groups : ["",Validators.required],
@@ -71,6 +73,9 @@ export class LedgersComponent implements OnInit {
     this.groups = value['value'];
   }
   
+  selectLedger(ledger:any){
+    this.selectedLedger = ledger;
+  }
   
   accounts =["bank OCC AC",
   "bank OD AC",
