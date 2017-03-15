@@ -1,4 +1,5 @@
 @import "https://fonts.googleapis.com/css?family=Merriweather|Acme|Josefin+Sans";
+@import "https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css";
 .loader {
   background-color: #02182B;
   width: 100%;
@@ -659,17 +660,17 @@ input.mat-input-element:-webkit-autofill + .mat-input-placeholder .mat-placehold
     color: rgba(0, 0, 0, 0.38); }
 
 .mat-sidenav-container {
-  background-color: #ffffff;
+  background-color: #fafafa;
   color: rgba(0, 0, 0, 0.87); }
 
 .mat-sidenav {
-  background-color: #ffffff;
+  background-color: white;
   color: rgba(0, 0, 0, 0.87); }
   .mat-sidenav.mat-sidenav-push {
-    background-color: #ffffff; }
+    background-color: white; }
 
 .mat-sidenav-backdrop.mat-sidenav-shown {
-  background-color: rgba(255, 255, 255, 0.1); }
+  background-color: rgba(0, 0, 0, 0.6); }
 
 .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
   background-color: #ffc107; }
@@ -777,12 +778,17 @@ input.mat-input-element:-webkit-autofill + .mat-input-placeholder .mat-placehold
 .mat-tooltip {
   background: rgba(97, 97, 97, 0.9); }
 
-body, html {
+body,
+html {
   padding: 0;
   margin: 0;
   font-family: 'Merriweather', serif; }
 
-h1, h2, h3, h4, h5 {
+h1,
+h2,
+h3,
+h4,
+h5 {
   font-family: 'Acme', sans-serif; }
 
 header {
@@ -847,6 +853,12 @@ body::-webkit-scrollbar {
 body::-webkit-scrollbar-thumb {
   background-color: rgba(2, 24, 43, 0.5);
   background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.2) 25%, transparent 15%, transparent 30%, rgba(255, 255, 255, 0.2) 30%, rgba(255, 255, 255, 0.2) 55%, transparent 55%, transparent); }
+
+div[class^="col-sm-"] {
+  margin-bottom: 5px; }
+
+.no-padding {
+  padding: 0; }
 
 .page-signup {
   background: #02182B;
@@ -1014,34 +1026,6 @@ body::-webkit-scrollbar-thumb {
 @media screen and (max-width: 768px) {
   .side-bar-ativate {
     visibility: visible; } }
-md-card {
-  width: 100%;
-  padding-bottom: 20px; }
-  md-card input {
-    border: none;
-    border-radius: 0;
-    margin: 5px;
-    padding: 10px;
-    width: 100%; }
-    md-card input:focus {
-      outline: none;
-      border: none; }
-  md-card .form-button {
-    background: #FFC107;
-    border: none;
-    margin: 5px;
-    padding: 10px 10px;
-    width: 100%; }
-    md-card .form-button:hover {
-      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
-      background: #f6a83c;
-      text-decoration: none; }
-  md-card .mat-input-container {
-    width: 100%; }
-
-.mat-grid-tile .mat-figure {
-  align-items: flex-start !important; }
-
 .header-under {
   background: none;
   box-shadow: none;
@@ -1049,6 +1033,62 @@ md-card {
 
 .mat-tab-body-content {
   padding: 5px; }
+
+.recent_activity ul {
+  border-left: #448FA3 8px solid;
+  padding: 10px;
+  list-style: none; }
+  .recent_activity ul li {
+    margin-bottom: 10px;
+    border: .2px solid #eee;
+    padding: 10px;
+    transition: .5s;
+    border-bottom-right-radius: 10px; }
+    .recent_activity ul li:before {
+      content: '';
+      width: 10px;
+      left: 23px;
+      position: absolute;
+      min-height: 10px;
+      border: 2px #448FA3 solid;
+      border-radius: 100%;
+      background: #02182B; }
+      @media screen and (max-width: 700px) {
+        .recent_activity ul li:before {
+          left: 15px; } }
+    .recent_activity ul li:hover {
+      box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.29); }
+
+.company-list {
+  cursor: pointer; }
+  .company-list md-list-item:hover {
+    background: #FFC107;
+    color: #02182B; }
+
+.coloumn-container {
+  padding: 0; }
+
+.company-form input {
+  border: none;
+  border-radius: 0;
+  margin: 5px;
+  padding: 10px;
+  width: 100%; }
+  .company-form input:focus {
+    outline: none;
+    border: none; }
+.company-form .form-button {
+  background: #FFC107;
+  border: none;
+  margin: 5px;
+  padding: 10px 10px;
+  width: 100%; }
+  .company-form .form-button:hover {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+    background: #f6a83c;
+    text-decoration: none; }
+.company-form .mat-input-container {
+  width: 100%; }
 
 .ledger-container input {
   border: none;
@@ -1076,6 +1116,13 @@ md-card {
   margin-top: 5px; }
 .ledger-container .ledger-form-container {
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19); }
+.ledger-container .ledger-list {
+  cursor: pointer; }
+  .ledger-container .ledger-list md-list-item {
+    padding: 5px; }
+    .ledger-container .ledger-list md-list-item:hover {
+      background: #FFC107;
+      color: #02182B; }
 
 .vouchers-container {
   margin: 5px; }
