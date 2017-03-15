@@ -1,44 +1,66 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { Company,Ledgers,Contra,Payment,Receipt } from '../model';
-import {CalendarModule} from 'primeng/primeng';
-import { ReactiveFormsModule,FormBuilder, Validators } from '@angular/forms';
-import {MdSnackBar} from '@angular/material';
+import { Company, Ledgers, Voucher } from '../model';
+import { CalendarModule } from 'primeng/primeng';
+import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
+import { MdSnackBar } from '@angular/material';
 import { LedgersService } from '../ledgers/ledgers.service';
+import { VoucherService } from './vouchers.service';
 
 
 @Component({
-  selector: 'vouchers',
-  templateUrl: 'vouchers.component.html',
-  providers: [LedgersService]
+    selector: 'vouchers',
+    templateUrl: 'vouchers.component.html',
+    providers: [LedgersService, VoucherService]
 })
 
 export class VouchersComponent implements OnInit {
-    ledgers:Ledgers[];
-    firstAc:number;
-    secondAc:number;
-    amount:number;
-    voucherType:string;
-    narration:string;
+    ledgers: Ledgers[];
+    vouchers: Voucher[] = [];
+    firstAc: number;
+    secondAc: number;
+    amount: number;
+    narration: string;
+    error: string;
     selectedCompany = localStorage.getItem('companyName');
-    ngOnInit(){
+    ngOnInit() {
         this.titleService.setTitle("Your Dashboard || Vouchers");
         this.getLedgers();
     }
 
-    changeFirstAc(event:string){
-        this.firstAc = event['value'];
+    changeFirstAc(event: string) {
+        this.firstAc = event['value'].id;
     }
-    changeSecondAc(event:string){
-        this.secondAc = event['value'];
+    changeSecondAc(event: string) {
+        this.secondAc = event['value'].id;
     }
 
-    getLedgers(){
+    getLedgers() {
         this.LedgersService.getLedgers()
-        .subscribe(
-        ledgers => {this.ledgers = ledgers;console.log(this.ledgers);},
-        error => {console.log(error)}
-        );
+            .subscribe(
+            ledgers => { this.ledgers = ledgers; console.log(this.ledgers); },
+            error => { console.log(error) }
+            );
     }
-    public constructor(private titleService: Title, private LedgersService:LedgersService,public snackbar:MdSnackBar,public fb: FormBuilder) { }
+
+    addVouchers(type: string) {
+        let dataObject: any = {};
+        dataObject['firstAccount'] = this.firstAc;
+        dataObject['secondAccount'] = this.secondAc;
+        dataObject['amount'] = this.amount;
+        dataObject['narration'] = this.narration;
+        dataObject['company'] = localStorage.getItem('company');
+        dataObject['addedBy'] = 3;
+        let data = JSON.stringify(dataObject);
+        this.VoucherService.addVoucher(data, type)
+            .subscribe(
+            Voucher => {
+                this.vouchers.push(Voucher);
+                this.snackbar.open(type + ' Added ', 'X')
+            },
+            error => this.error = <any>error
+            );
+
+    }
+    public constructor(private titleService: Title, private LedgersService: LedgersService, public snackbar: MdSnackBar, private VoucherService: VoucherService) { }
 }
