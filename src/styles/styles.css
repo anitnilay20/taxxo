@@ -1064,6 +1064,11 @@ div[class^="col-sm-"] {
   .company-list md-list-item:hover {
     background: #FFC107;
     color: #02182B; }
+  .company-list md-list-item .mat-icon {
+    position: absolute;
+    right: 10px; }
+    .company-list md-list-item .mat-icon:hover {
+      transform: scale(1.2); }
 
 .coloumn-container {
   padding: 0; }
