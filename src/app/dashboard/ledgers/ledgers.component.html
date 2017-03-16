@@ -1,35 +1,35 @@
 <div class="row" class="ledger-container">
-    <div class="col-sm-8 ledger-form-container">
-        <md-tab-group>
-            <md-tab label="Available Ledgers">
-                <md-list class="ledger-list">
-                    <md-list-item (click)="selectLedger(ledger)" *ngFor="let ledger of ledgers">{{ledger.name}}</md-list-item>
-                </md-list>
-            </md-tab>
-            <md-tab label="Add Ledgers">
-                <form [formGroup]="addLedgerForm">
-                    <md-input-container> <input mdInput type="text" formControlName="name" placeholder="Name Of Ledgers" required /></md-input-container>
-                    <md-input-container> <input mdInput type="number" formControlName="opening_balance" placeholder="Openbing Balance" required /></md-input-container>
-                    <md-select (change)="select_accounts($event)" placeholder="Slect Group">
-                        <md-option *ngFor="let account of accounts" [value]="account">{{ account }}</md-option>
-                    </md-select>
-                    <md-slide-toggle (change)="change_inventory()">Affects Inventory?</md-slide-toggle>
-                    <button (click)="addLedger()" md-button style="z-index: 1000;" type="submit" class="form-button">Submit</button>
-                </form>
-            </md-tab>
-        </md-tab-group>
-    </div>
-    <div class="col-sm-4">
-        <md-card>
-            <h5 *ngIf="!selectedCompany">No company selected. Please Select a company from company tab.</h5>
-            <h5 *ngIf="selectedCompany">Using {{selectedCompany}}</h5>
-        </md-card>
-    </div>
-    <div *ngIf="selectedLedger" class="col-sm-8 animated fadeIn no-padding">
-        <md-card>
-            <h4>{{selectedLedger.name}}</h4>
-            <p>{{selectedLedger.opening_balance}}</p>
-            <p>{{selectedLedger.groups}}</p>
-        </md-card>
-    </div>
+  <div class="col-sm-8 ledger-form-container">
+    <md-tab-group>
+      <md-tab label="Available Ledgers">
+        <md-list class="ledger-list">
+          <md-list-item (click)="selectLedger(ledger)" *ngFor="let ledger of ledgers">{{ledger.name}}</md-list-item>
+        </md-list>
+      </md-tab>
+      <md-tab label="Add Ledgers">
+        <form [formGroup]="addLedgerForm">
+          <md-input-container> <input mdInput type="text" formControlName="name" placeholder="Name Of Ledgers" required /></md-input-container>
+          <md-input-container> <input mdInput type="number" formControlName="opening_balance" placeholder="Openbing Balance" required /></md-input-container>
+          <md-select (change)="select_accounts($event)" placeholder="Slect Group">
+            <md-option *ngFor="let account of accounts" [value]="account">{{ account }}</md-option>
+          </md-select>
+          <md-slide-toggle (change)="change_inventory()">Affects Inventory?</md-slide-toggle>
+          <button (click)="addLedger()" md-button style="z-index: 1000;" type="submit" class="form-button">Submit</button>
+        </form>
+      </md-tab>
+    </md-tab-group>
+  </div>
+  <div class="col-sm-4 no-padding-mobile">
+    <md-card>
+      <h5 *ngIf="!selectedCompany">No company selected. Please Select a company from company tab.</h5>
+      <h5 *ngIf="selectedCompany">Using {{selectedCompany}}</h5>
+    </md-card>
+  </div>
+  <div *ngIf="selectedLedger" class="col-sm-8 animated fadeIn no-padding">
+    <md-card>
+      <h4>{{selectedLedger.name}}</h4>
+      <p>{{selectedLedger.opening_balance}}</p>
+      <p>{{selectedLedger.groups}}</p>
+    </md-card>
+  </div>
 </div>

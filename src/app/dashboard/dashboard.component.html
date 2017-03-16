@@ -1,71 +1,72 @@
 <header class="dashboard-header">
-    <nav>
-        <div class="container-fluid">
-            <h3 (click)="sidenav.open()"><i class="material-icons side-bar-ativate">view_headline</i>T DashBoard</h3>
+  <nav>
+    <div class="container-fluid">
+      <h3 (click)="sidenav.open()"><i class="material-icons side-bar-ativate">view_headline</i>T DashBoard</h3>
 
-            <ul>
-                <li><i class="material-icons">notifications</i></li>
-                <li><i class="material-icons">search</i></li>
-                <li><i class="material-icons">settings</i></li>
-            </ul>
-        </div>
-    </nav>
+      <ul>
+        <li><i class="material-icons">notifications</i></li>
+        <li><i class="material-icons">search</i></li>
+        <li><i class="material-icons">settings</i></li>
+      </ul>
+    </div>
+  </nav>
 </header>
 
 <md-sidenav-container class="example-container">
-    <md-sidenav (mouseleave)="sidenav.close()" #sidenav mode="over" class="example-sidenav">
-        <div class="container-fluid sidenav-internal">
-            <div class="panel-image-container">
-                <img src="https://cmkt-image-prd.global.ssl.fastly.net/0.1.0/ps/1135824/580/386/m1/fpnw/wm0/cover-.jpg?1459430243&s=37e24e87e07fccff592af0d4d2ccf2f1" alt="board-picture" width="100%">
-                <h5 style="position: absolute;top: 150px;color: white;margin: 5px;">Anit Nilay</h5>
-                <h6 style="position: absolute;top: 180px;color: white;margin: 5px;">Anit.nilay20@gmail.com</h6>
-            </div>
-            <div class="dashboard-list">
-                <md-list>
-                    <a [routerLink]="['/dashboard']">
-                        <md-list-item>
-                            <i class="material-icons left-list-obj">dashboard</i><i class="center-list-obj">DashBoard Home</i><i class="material-icons right-list-obj">keyboard_arrow_right</i>
-                        </md-list-item>
-                    </a>
-                    <a [routerLink]="['company']">
-                        <md-list-item>
-                            <i class="material-icons left-list-obj">work</i><i class="center-list-obj">Company</i><i class="material-icons right-list-obj">keyboard_arrow_right</i>
-                        </md-list-item>
-                    </a>
-                    <a [routerLink]="['ledgers']">
-                        <md-list-item>
-                            <i class="material-icons left-list-obj">content_copy</i><i class="center-list-obj">Ledgers</i><i class="material-icons right-list-obj">keyboard_arrow_right</i>
-                        </md-list-item>
-                    </a>
-                    <a [routerLink]="['vouchers']">
-                        <md-list-item>
-                            <i class="material-icons left-list-obj">border_color</i><i class="center-list-obj">Vouchers</i><i class="material-icons right-list-obj">keyboard_arrow_right</i>
-                        </md-list-item>
-                    </a>
-                </md-list>
-            </div>
-        </div>
-    </md-sidenav>
+  <md-sidenav (mouseleave)="sidenav.close()" #sidenav mode="over" class="example-sidenav">
+    <div class="container-fluid sidenav-internal">
+      <div class="panel-image-container">
+        <img src="https://cmkt-image-prd.global.ssl.fastly.net/0.1.0/ps/1135824/580/386/m1/fpnw/wm0/cover-.jpg?1459430243&s=37e24e87e07fccff592af0d4d2ccf2f1"
+          alt="board-picture" width="100%">
+        <h5 style="position: absolute;top: 150px;color: white;margin: 5px;">Anit Nilay</h5>
+        <h6 style="position: absolute;top: 180px;color: white;margin: 5px;">Anit.nilay20@gmail.com</h6>
+      </div>
+      <div class="dashboard-list">
+        <md-list>
+          <a [routerLink]="['/dashboard']">
+            <md-list-item>
+              <i class="material-icons left-list-obj">dashboard</i><i class="center-list-obj">DashBoard Home</i><i class="material-icons right-list-obj">keyboard_arrow_right</i>
+            </md-list-item>
+          </a>
+          <a [routerLink]="['company']">
+            <md-list-item>
+              <i class="material-icons left-list-obj">work</i><i class="center-list-obj">Company</i><i class="material-icons right-list-obj">keyboard_arrow_right</i>
+            </md-list-item>
+          </a>
+          <a [routerLink]="['ledgers']">
+            <md-list-item>
+              <i class="material-icons left-list-obj">content_copy</i><i class="center-list-obj">Ledgers</i><i class="material-icons right-list-obj">keyboard_arrow_right</i>
+            </md-list-item>
+          </a>
+          <a [routerLink]="['vouchers']">
+            <md-list-item>
+              <i class="material-icons left-list-obj">border_color</i><i class="center-list-obj">Vouchers</i><i class="material-icons right-list-obj">keyboard_arrow_right</i>
+            </md-list-item>
+          </a>
+        </md-list>
+      </div>
+    </div>
+  </md-sidenav>
 
-    <div class="example-sidenav-content">
-        <button class="hidden-button" md-button (mouseenter)="sidenav.open()">
+  <div class="example-sidenav-content">
+    <button class="hidden-button" md-button (mouseenter)="sidenav.open()">
       O
     </button>
-    </div>
-    <div class="main-container">
-        <md-list style="float: left;position: fixed" class="icon-list" (mouseenter)="sidenav.open()">
-            <md-list-item> <i class="material-icons">dashboard</i> </md-list-item>
-            <md-list-item> <i class="material-icons">work</i> </md-list-item>
-            <md-list-item> <i class="material-icons">content_copy</i> </md-list-item>
-            <md-list-item> <i class="material-icons">border_color</i> </md-list-item>
-        </md-list>
+  </div>
+  <div class="main-container">
+    <md-list style="float: left;position: fixed" class="icon-list" (mouseenter)="sidenav.open()">
+      <md-list-item> <i class="material-icons">dashboard</i> </md-list-item>
+      <md-list-item> <i class="material-icons">work</i> </md-list-item>
+      <md-list-item> <i class="material-icons">content_copy</i> </md-list-item>
+      <md-list-item> <i class="material-icons">border_color</i> </md-list-item>
+    </md-list>
 
-        <div class="container-right">
-            <router-outlet>
-                <md-progress-bar *ngIf="loading" mode="indeterminate"></md-progress-bar>
-            </router-outlet>
-        </div>
-        <div class="clear"></div>
+    <div class="container-right">
+      <router-outlet>
+        <md-progress-bar *ngIf="loading" mode="indeterminate"></md-progress-bar>
+      </router-outlet>
     </div>
+    <div class="clear"></div>
+  </div>
 
 </md-sidenav-container>

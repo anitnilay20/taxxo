@@ -45,19 +45,7 @@
   cursor: pointer;
 
   md-list-item {
-    &:hover {
-      background: $highlight;
-      color: $color2;
-    }
-
-    .mat-icon {
-      position: absolute;
-      right: 10px;
-
-      &:hover {
-        transform: scale(1.2);
-      }
-    }
+    position: relative;
   }
 }
 
