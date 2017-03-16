@@ -17,9 +17,9 @@ export class CompanyService {
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }
 
-  getActivity(): Observable<Activity[]> {
+  getActivity(id: number): Observable<Activity[]> {
     let url = 'http://52.37.146.59/activity/';
-    let headers = new Headers({ 'COMPANY': parseInt(this.current_company) })
+    let headers = new Headers({ 'COMPANY': id })
     let option = new RequestOptions({ headers: headers });
     return this.http.get(url, option)
       .map((res: Response) => res.json())

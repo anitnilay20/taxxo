@@ -51,7 +51,7 @@ export class CompanyComponent implements OnInit {
     this.snackbar.open("Using Company " + company.name, "X", {
       duration: 5000,
     });
-    this.companyService.getActivity()
+    this.companyService.getActivity(company.id)
       .subscribe(
       Activity => { this.activities = Activity; console.log(this.activities); },
       error => { console.log(error) }

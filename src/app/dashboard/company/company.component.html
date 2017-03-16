@@ -6,7 +6,9 @@
                     <md-tab label="All Company">
                         <h4>Select a company</h4>
                         <md-list class="company-list">
-                            <md-list-item (click)="selectCompany(company)" *ngFor="let company of companies"> {{company.name}} </md-list-item>
+                            <md-list-item (click)="selectCompany(company)" *ngFor="let company of companies"> {{company.name}}
+                                <md-icon>mode_edit</md-icon>
+                            </md-list-item>
                         </md-list>
                     </md-tab>
                     <md-tab label="Add Company">
@@ -24,8 +26,10 @@
                             <md-input-container><input mdInput type="text" formControlName="pin_code" placeholder="Pin Code"></md-input-container>
                             <md-input-container><input mdInput type="number" formControlName="telephone_number" placeholder="Phone Number"></md-input-container>
                             <md-input-container><input mdInput type="text" formControlName="currency_symbols" placeholder="Currency Symbol" required></md-input-container>
-                            <md-input-container><input mdInput type="date" placeholder="Financial Year from" formControlName="financial_year_from" required></md-input-container>
-                            <md-input-container><input mdInput type="date" placeholder="Book Keeping from" formControlName="books_beginning_from" required></md-input-container>
+                            <md-input-container><input mdInput type="date" placeholder="Financial Year from" formControlName="financial_year_from"
+                                    required></md-input-container>
+                            <md-input-container><input mdInput type="date" placeholder="Book Keeping from" formControlName="books_beginning_from"
+                                    required></md-input-container>
                             <md-slide-toggle (change)="change_accounts_with_inventory()" fromControlName="accounts_with_inventory">Accounts with inventory?</md-slide-toggle>
                             <md-slide-toggle (change)="change_show_amounts_in_millions()" fromControlName="show_amounts_in_millions">Show In Million?</md-slide-toggle>
                             <button (click)="addCompany()" md-button style="z-index: 1000;" type="submit" class="form-button">Submit</button>
@@ -39,16 +43,21 @@
                 <h4>Edit {{selectedCompany.name}}</h4>
                 <hr>
                 <form class="company-form" [formGroup]="addCompanyForm">
-                    <md-input-container> <input value="{{selectedCompany.name}}" mdInput type="text" formControlName="name" placeholder="Name Of Company" required /></md-input-container>
-                    <md-input-container> <input value="{{selectedCompany.alias_name}}" mdInput type="text" formControlName="alias_name" placeholder="Alias Name" required /></md-input-container>
-                    <md-input-container> <input value="{{selectedCompany.email}}" mdInput type="email" formControlName="email" placeholder="E-Mail" required /></md-input-container>
+                    <md-input-container> <input value="{{selectedCompany.name}}" mdInput type="text" formControlName="name" placeholder="Name Of Company"
+                            required /></md-input-container>
+                    <md-input-container> <input value="{{selectedCompany.alias_name}}" mdInput type="text" formControlName="alias_name" placeholder="Alias Name"
+                            required /></md-input-container>
+                    <md-input-container> <input value="{{selectedCompany.email}}" mdInput type="email" formControlName="email" placeholder="E-Mail"
+                            required /></md-input-container>
                     <md-input-container> <input value="{{selectedCompany.address}}" mdInput type="text" formControlName="address" placeholder="Address Of Company"></md-input-container>
                     <md-input-container> <input value="{{selectedCompany.country}}" mdInput type="text" formControlName="country" placeholder="Country"></md-input-container>
                     <md-input-container> <input value="{{selectedCompany.city}}" mdInput type="text" formControlName="city" placeholder="City"></md-input-container>
                     <md-input-container><input value="{{selectedCompany.state}}" mdInput type="text" formControlName="state" placeholder="State"></md-input-container>
                     <md-input-container><input value="{{selectedCompany.pin_code}}" mdInput type="text" formControlName="pin_code" placeholder="Pin Code"></md-input-container>
-                    <md-input-container><input value="{{selectedCompany.telephone_number}}" mdInput type="number" formControlName="telephone_number" placeholder="Phone Number"></md-input-container>
-                    <md-input-container><input value="{{selectedCompany.currency_symbols}}" mdInput type="text" formControlName="currency_symbols" placeholder="Currency Symbol" required></md-input-container>
+                    <md-input-container><input value="{{selectedCompany.telephone_number}}" mdInput type="number" formControlName="telephone_number"
+                            placeholder="Phone Number"></md-input-container>
+                    <md-input-container><input value="{{selectedCompany.currency_symbols}}" mdInput type="text" formControlName="currency_symbols"
+                            placeholder="Currency Symbol" required></md-input-container>
                     <button (click)="addCompany()" md-button style="z-index: 1000;" type="submit" class="form-button">Submit</button>
                 </form>
             </md-card>
