@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { Company, Activity } from '../model'
+import { Company, Activity } from '../model';
 import { CompanyService } from './company.service'
 import { CalendarModule } from 'primeng/primeng';
 import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';

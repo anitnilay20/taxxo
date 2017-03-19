@@ -57,3 +57,11 @@ export class Activity {
   amount: number;
   company: number;
 }
+
+export class TrialBalance {
+  particular: string;
+  debitAmount: number;
+  creditAmount: number;
+  ledger: number;
+  company: number;
+}

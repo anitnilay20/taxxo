@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule, Title }  from '@angular/platform-browser';
+import { BrowserModule, Title } from '@angular/platform-browser';
 import { DashboardComponent } from './dashboard.component';
 import { MaterialModule } from '@angular/material'
 import { CompanyComponent } from './company/company.component'
 import { RouterModule } from '@angular/router';
-import {CalendarModule} from 'primeng/primeng';
+import { CalendarModule } from 'primeng/primeng';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { LedgersComponent } from './ledgers/ledgers.component';
 import { VouchersComponent } from './vouchers/vouchers.component';
+import { DashboardhomeComponent } from './dashboardhome/dashboardhome.component';
 
 @NgModule({
   imports: [
@@ -22,11 +23,12 @@ import { VouchersComponent } from './vouchers/vouchers.component';
     DashboardComponent,
     CompanyComponent,
     LedgersComponent,
-    VouchersComponent
+    VouchersComponent,
+    DashboardhomeComponent
   ],
   providers: [
     Title
   ],
-  bootstrap: [ DashboardComponent ]
+  bootstrap: [DashboardComponent]
 })
 export class DashboardModule { }
