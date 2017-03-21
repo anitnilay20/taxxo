@@ -65,3 +65,14 @@ export class TrialBalance {
   ledger: number;
   company: number;
 }
+
+class ProfitLossData {
+  particular: string;
+  amount: number;
+}
+
+export class ProfitLoss {
+  export: ProfitLossData;
+  import: ProfitLossData;
+}
+

@@ -4742,15 +4742,15 @@ div[class^="col-sm-"] {
 @media screen and (max-width: 768px) {
   .side-bar-ativate {
     visibility: visible; } }
-table {
+table.two-tr-border {
   width: 100%; }
-  table tr th {
+  table.two-tr-border tr th {
     background: #084C61;
     color: white;
     padding: 10px; }
-  table tr td {
+  table.two-tr-border tr td {
     padding: 10px; }
-  table tr:nth-child(odd) {
+  table.two-tr-border tr:nth-child(odd) {
     border-bottom: 2px solid #B71C1C; }
 
 .header-under {
