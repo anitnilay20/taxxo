@@ -4742,16 +4742,29 @@ div[class^="col-sm-"] {
 @media screen and (max-width: 768px) {
   .side-bar-ativate {
     visibility: visible; } }
-table.two-tr-border {
-  width: 100%; }
-  table.two-tr-border tr th {
-    background: #084C61;
-    color: white;
-    padding: 10px; }
-  table.two-tr-border tr td {
-    padding: 10px; }
-  table.two-tr-border tr:nth-child(odd) {
-    border-bottom: 2px solid #B71C1C; }
+table.two-tr-table tr th, .table-with-header tr th {
+  background: #084C61;
+  color: white;
+  padding: 10px; }
+table.two-tr-table tr td, .table-with-header tr td {
+  padding: 10px; }
+table.two-tr-table tr:nth-child(odd), .table-with-header tr:nth-child(odd) {
+  border-bottom: 2px solid #B71C1C; }
+
+.table-with-header h5 {
+  background: #084C61;
+  width: 187.5%;
+  color: white;
+  padding: 10px;
+  margin: 0;
+  border-bottom: 1px #B71C1C solid; }
+  .table-with-header h5:nth-child(odd) {
+    border-right: 5px #B71C1C solid; }
+.table-with-header tr:nth-child(odd) {
+  border-bottom: none;
+  background: #eee; }
+.table-with-header:nth-child(odd) {
+  border-right: 1px #B71C1C solid; }
 
 .header-under {
   background: none;

@@ -36,7 +36,11 @@ export class DashboardhomeComponent implements OnInit {
 	getProfitLoss(company: Company) {
 		this.companyService.getProfitLoss(company.id)
 			.subscribe(
-			ProfitLoss => { this.profitLoss = ProfitLoss; console.log(this.profitLoss); },
+			ProfitLoss => {
+				this.profitLoss = ProfitLoss; console.log(this.profitLoss);
+				this.expense = this.profitLoss['expense'];
+				this.income = this.profitLoss['income'];
+			},
 			error => { console.log(error); }
 			);
 	}

@@ -8,11 +8,9 @@
     height: auto;
   }
   transition: .5s;
-
   h3 {
     float: left;
   }
-
   li {
     cursor: pointer;
   }
@@ -28,7 +26,6 @@
   padding: 0;
   width: 100%;
   height: 100vh;
-
   md-sidenav {
     visibility: visible;
     width: 300px;
@@ -36,7 +33,6 @@
     color: $color1;
     height: 100vh;
   }
-
   .sidenav-internal {
     padding: 0;
     margin-top: 10px;
@@ -48,7 +44,6 @@
     }
     overflow: hidden;
   }
-
   .icon-list {
     position: fixed;
     background: white;
@@ -61,21 +56,17 @@
     @media screen and (max-width: 768px) {
       display: none;
     }
-
     &:hover {
       width: 500px;
     }
-
     i {
       color: $color2;
     }
     transition: 1s;
   }
-
   a {
     text-decoration: none;
     color: inherit;
-
     &:hover {
       color: white;
       background: $color1;
@@ -86,10 +77,8 @@
 .dashboard-list {
   md-list {
     width: 100%;
-
     a {
       width: 100%;
-
       md-list-item {
         &:hover {
           background: $color1;
@@ -103,7 +92,6 @@
 .main-container {
   width: 100%;
   padding: 5px;
-
   .container-right {
     margin-top: 30px;
     margin-left: 80px;
@@ -153,31 +141,52 @@
   visibility: hidden;
   font-size: 1em;
 }
+
 @media screen and (max-width: 768px) {
   .side-bar-ativate {
     visibility: visible;
   }
 }
 
-table.two-tr-border {
-  width: 100%;
-
+table.two-tr-table {
   tr {
     th {
       background: $color1;
       color: white;
       padding: 10px;
     }
-
     td {
       padding: 10px;
     }
-
     &:nth-child(odd) {
       border-bottom: 2px solid $base-head;
     }
-
   }
 }
+
+.table-with-header {
+  @extend table.two-tr-table;
+  h5 {
+    background: $color1;
+    width: 187.5%;
+    color: white;
+    padding: 10px;
+    margin: 0;
+    border-bottom: 1px $base-head solid;
+    &:nth-child(odd) {
+      border-right: 5px $base-head solid;
+    }
+  }
+  tr {
+    &:nth-child(odd) {
+      border-bottom: none;
+      background: #eee;
+    }
+  }
+  &:nth-child(odd) {
+    border-right: 1px $base-head solid;
+  }
+}
+
 @import '_company.scss';
 @import '_ledgers.scss';

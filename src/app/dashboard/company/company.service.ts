@@ -36,7 +36,7 @@ export class CompanyService {
   }
 
   getProfitLoss(id: number): Observable<ProfitLoss[]> {
-    let url = 'http://127.0.0.1:8000/trialbalance/profitloss/';
+    let url = 'http://52.37.146.59/trialbalance/profitloss/';
     let headers = new Headers({ 'COMPANY': id })
     let option = new RequestOptions({ headers: headers });
     return this.http.get(url, option)

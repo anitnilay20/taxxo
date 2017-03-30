@@ -17,7 +17,7 @@
         <md-tab label="Trial Balance">
           <h4>Trial Balance</h4>
           <hr>
-          <table class="two-tr-border">
+          <table class="col-sm-12 two-tr-table">
             <tr>
               <th>Particular</th>
               <th>Debit</th>
@@ -33,9 +33,26 @@
         <md-tab label="Profit & Loss">
           <h4>Profit and loss</h4>
           <hr>
-          <table class="col-sm-6">
+          <table class="col-sm-6 table-with-header">
+            <h5>Expense</h5>
             <tr>
-              <td>1</td>
+              <th>Particular</th>
+              <th>Amount</th>
+            </tr>
+            <tr *ngFor="let i of expense">
+              <td>{{i.particular}}</td>
+              <td>{{i.amount}}</td>
+            </tr>
+          </table>
+          <table class="col-sm-6 table-with-header">
+            <h5>Income</h5>
+            <tr>
+              <th>Particular</th>
+              <th>Amount</th>
+            </tr>
+            <tr *ngFor="let i of income">
+              <td>{{i.particular}}</td>
+              <td>{{i.amount}}</td>
             </tr>
           </table>
         </md-tab>
