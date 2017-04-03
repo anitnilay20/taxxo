@@ -1,0 +1,23 @@
+<div class="page-signup">
+  <div class="container container-fluid">
+    <div class="col-sm-6 image-container">
+      <img src="./img/main.svg" alt="some-image" height="540px" />
+    </div>
+    <div class="col-sm-6 form-container">
+      <form [formGroup]="signupform">
+
+        <md-input-container>
+          <input mdInput formControlName="email" type="email" size="25" />
+        </md-input-container>
+
+        <p-messages [value]="msgs"></p-messages>
+        <md-input-container>
+          <input mdInput type="password" placeholder="Password" formControlName="password" />
+        </md-input-container>
+
+
+        <button pButton type="button" (click)="onsubmit()" class="form-button">Sign Up</button>
+      </form>
+    </div>
+  </div>
+</div>
