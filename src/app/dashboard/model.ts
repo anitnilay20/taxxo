@@ -18,6 +18,18 @@ export class Company {
   admin: number;
 }
 
+export class User {
+  password: string;
+  last_login: string;
+  user_name: string;
+  first_name: string;
+  last_name: string;
+  email_address: string;
+  date_joined: Date;
+  number: number;
+  birth_date: Date;
+}
+
 export class Profile {
   number: number;
   birth_date: Date;
