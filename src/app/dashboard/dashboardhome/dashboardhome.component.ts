@@ -17,6 +17,8 @@ export class DashboardhomeComponent implements OnInit {
 	profitLoss: ProfitLoss[];
 	expense: any[];
 	income: any[];
+	totalExpense: number;
+	totalIncome: number;
 	getCompany() {
 		this.companyService.getCompany()
 			.subscribe(
@@ -40,6 +42,7 @@ export class DashboardhomeComponent implements OnInit {
 				this.profitLoss = ProfitLoss; console.log(this.profitLoss);
 				this.expense = this.profitLoss['expense'];
 				this.income = this.profitLoss['income'];
+				this.calculateProfitLossTotal();
 			},
 			error => { console.log(error); }
 			);
@@ -54,6 +57,21 @@ export class DashboardhomeComponent implements OnInit {
 		this.snackbar.open('Using Company ' + company.name, 'X', {
 			duration: 5000,
 		});
+	}
+
+	calculateProfitLossTotal() {
+		var totalExpense = 0, totalIncome = 0;
+		for (let i = 0; i < this.expense.length; i++) {
+			let amount = this.expense[i].amount;
+			totalExpense += amount;
+		}
+
+		for (let i = 0; i < this.income.length; i++) {
+			let amount = this.income[i].amount;
+			totalIncome += amount;
+		}
+		this.totalExpense = totalExpense;
+		this.totalIncome = totalIncome;
 	}
 
 	constructor(private titleService: Title, private companyService: CompanyService, public snackbar: MdSnackBar) { }

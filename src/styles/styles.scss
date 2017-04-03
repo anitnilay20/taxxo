@@ -140,5 +140,9 @@ div[class^="col-sm-"] {
     padding: 0;
   }
 }
+
+.float-right {
+  float: right;
+}
 @import '_signup.scss';
 @import '_dashboard.scss';
