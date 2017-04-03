@@ -26,7 +26,7 @@
     <h2>to track their money.</h2>
     <h3>Manage Your bussinesses Accounts on a day to day basis</h3>
     <h3>And help it grow bigger</h3>
-    
+
     <form [formGroup]="signupform" (ngSubmit)="redirect_to_signup($event)">
       <md-input-container>
         <input mdInput placeholder="Name" formControlName="name" type="text" size="50" [(ngModel)]="name" required pInputText/>
@@ -40,7 +40,7 @@
         <input mdInput placeholder="Phone Number" formControlName="phone" type="number" size="50" [(ngModel)]="phone" required pInputText/>
       </md-input-container>
 
-      <button pButton type="submit" class="form-button">Try For Free</button>
+      <button md-button type="submit" class="form-button">Try For Free</button>
     </form>
   </div>
 </div>

@@ -33,8 +33,7 @@ export class SignupComponent implements OnInit {
     password2: ["", Validators.required],
     firstname: ["", Validators.required],
     username: ["", Validators.required],
-    lastname: ["", Validators.required],
-    datejoined: ["", Validators.required],
+    lastname: ["", Validators.required]
   });
 
   showError(message: string) {
