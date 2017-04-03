@@ -6,24 +6,40 @@
         <div class="col-sm-6 form-container">
             <form [formGroup]="signupform" (ngSubmit)="submit($event)">
                 <md-input-container>
-                    <input mdInput formControlName="name" type="text" [(ngModel)]="name" pInputText/>
+                    <input mdInput formControlName="name" placeholder="name" type="text" [(ngModel)]="name" />
                 </md-input-container>
 
                 <md-input-container>
-                    <input mdInput formControlName="email" type="email" size="25" [(ngModel)]="email" pInputText/>
+                    <input mdInput formControlName="email" placeholder="email" type="email" size="25" [(ngModel)]="email" />
                 </md-input-container>
 
                 <md-input-container>
-                    <input mdInput formControlName="phone" type="number" size="50" [(ngModel)]="phone" pInputText/>
+                    <input mdInput formControlName="phone" placeholder="phone" type="number" size="50" [(ngModel)]="phone" />
+                </md-input-container>
+
+                <md-input-container>
+                    <input mdInput formControlName="username" placeholder="username" type="text" size="50" />
+                </md-input-container>
+
+                <md-input-container>
+                    <input mdInput formControlName="firstname" placeholder="firstname" type="text" size="50" />
+                </md-input-container>
+
+                <md-input-container>
+                    <input mdInput formControlName="lastname" placeholder="lastname" type="text" size="50" />
+                </md-input-container>
+
+                <md-input-container>
+                    <input mdInput formControlName="datejoined" placeholder="datejoined" type="date" size="50" />
                 </md-input-container>
 
                 <p-messages [value]="msgs"></p-messages>
                 <md-input-container>
-                    <input mdInput type="password" placeholder="Password" formControlName="password1" [(ngModel)]="password1" pInputText/>
+                    <input mdInput type="password" placeholder="Password" formControlName="password1" [(ngModel)]="password1" />
                 </md-input-container>
 
                 <md-input-container>
-                    <input mdInput type="password" placeholder="Retype Password" formControlName="password2" [(ngModel)]="password2" pInputText/>
+                    <input mdInput type="password" placeholder="Retype Password" formControlName="password2" [(ngModel)]="password2" />
                 </md-input-container>
 
                 <button pButton type="button" (click)="onsubmit()" class="form-button">Sign Up</button>
