@@ -6,31 +6,31 @@
         <div class="col-sm-6 form-container">
             <form [formGroup]="signupform" (ngSubmit)="submit($event)">
                 <md-input-container>
-                    <input mdInput formControlName="name" placeholder="name" type="text" [(ngModel)]="name" />
+                    <input mdInput formControlName="name" placeholder="Name" type="text" [(ngModel)]="name" />
                 </md-input-container>
 
                 <md-input-container>
-                    <input mdInput formControlName="email" placeholder="email" type="email" size="25" [(ngModel)]="email" />
+                    <input mdInput formControlName="email" placeholder="Email" type="email" size="25" [(ngModel)]="email" />
                 </md-input-container>
 
                 <md-input-container>
-                    <input mdInput formControlName="phone" placeholder="phone" type="number" size="50" [(ngModel)]="phone" />
+                    <input mdInput formControlName="phone" placeholder="Phone" type="number" size="50" [(ngModel)]="phone" />
                 </md-input-container>
 
                 <md-input-container>
-                    <input mdInput formControlName="username" placeholder="username" type="text" size="50" />
+                    <input mdInput formControlName="username" placeholder="Username" type="text" size="50" />
                 </md-input-container>
 
                 <md-input-container>
-                    <input mdInput formControlName="firstname" placeholder="firstname" type="text" size="50" />
+                    <input mdInput formControlName="firstname" placeholder="Firstname" type="text" size="50" />
                 </md-input-container>
 
                 <md-input-container>
-                    <input mdInput formControlName="lastname" placeholder="lastname" type="text" size="50" />
+                    <input mdInput formControlName="lastname" placeholder="Lastname" type="text" size="50" />
                 </md-input-container>
 
                 <md-input-container>
-                    <input mdInput formControlName="datejoined" placeholder="datejoined" type="date" size="50" />
+                    <input mdInput formControlName="datejoined" placeholder="Datejoined" type="date" size="50" />
                 </md-input-container>
 
                 <p-messages [value]="msgs"></p-messages>
