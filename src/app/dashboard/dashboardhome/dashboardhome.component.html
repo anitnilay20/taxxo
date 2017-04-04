@@ -1,67 +1,75 @@
-<div class="row">
-  <div class="col-sm-4">
-    <md-card>
-      <h4>Select a Company</h4>
-      <hr>
-      <md-list class="company-list">
-        <md-list-item class="hvr-sweep-to-right" (click)="selectCompany(company)" *ngFor="let company of companies">
-          {{company.name}}
-        </md-list-item>
-      </md-list>
-    </md-card>
-  </div>
-  <div class="col-sm-8">
-    <md-card *ngIf="selectedCompany">
-      <h4>{{selectedCompany.name|uppercase}}'s REPORTS</h4>
-      <md-tab-group>
-        <md-tab label="Trial Balance">
-          <h4>Trial Balance</h4>
-          <hr>
-          <table class="col-sm-12 two-tr-table">
-            <tr>
-              <th>Particular</th>
-              <th>Debit</th>
-              <th>Credit</th>
-            </tr>
-            <tr *ngFor="let tb of trialBalances">
-              <td>{{tb.particular}}</td>
-              <td>{{tb.debitAmount}}</td>
-              <td>{{tb.creditAmount}}</td>
-            </tr>
-          </table>
-        </md-tab>
-        <md-tab label="Profit & Loss">
-          <h4>Profit and loss</h4>
-          <hr>
-          <table class="col-sm-6 table-with-header">
-            <h5>Expense</h5>
-            <tr>
-              <th>Particular</th>
-              <th>Amount</th>
-            </tr>
-            <tr *ngFor="let i of expense">
-              <td>{{i.particular}}</td>
-              <td>{{i.amount}}</td>
-            </tr>
-            <h5>Total <span class="float-right">{{totalExpense}}</span></h5>
-          </table>
-          <table class="col-sm-6 table-with-header">
-            <h5>Income</h5>
-            <tr>
-              <th>Particular</th>
-              <th>Amount</th>
-            </tr>
-            <tr *ngFor="let i of income">
-              <td>{{i.particular}}</td>
-              <td>{{i.amount}}</td>
-            </tr>
-            <h5>Total <span class="float-right">{{totalIncome}}</span></h5>
-          </table>
-        </md-tab>
-        <md-tab label="Balance Sheet">
-          <h4>Balance Sheet</h4>
-        </md-tab>
-      </md-tab-group>
-    </md-card>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-4">
+      <md-card>
+        <h4>Select a Company</h4>
+        <hr>
+        <md-list class="company-list">
+          <md-list-item class="hvr-sweep-to-right" (click)="selectCompany(company)" *ngFor="let company of companies">
+            {{company.name}}
+          </md-list-item>
+        </md-list>
+      </md-card>
+    </div>
+    <div class="col-sm-8">
+      <md-card *ngIf="selectedCompany">
+        <h4>{{selectedCompany.name|uppercase}}'s REPORTS</h4>
+        <md-tab-group>
+          <md-tab label="Trial Balance">
+            <h4>Trial Balance</h4>
+            <hr>
+            <table class="col-sm-12 two-tr-table">
+              <tr>
+                <th>Particular</th>
+                <th>Debit</th>
+                <th>Credit</th>
+              </tr>
+              <tr *ngFor="let tb of trialBalances">
+                <td>{{tb.particular}}</td>
+                <td>{{tb.debitAmount}}</td>
+                <td>{{tb.creditAmount}}</td>
+              </tr>
+            </table>
+          </md-tab>
+          <md-tab label="Profit & Loss">
+            <h4>Profit and loss</h4>
+            <hr>
+            <table class="col-sm-6 table-with-header">
+              <h4>Expense</h4>
+              <tr>
+                <th>Particular</th>
+                <th>Amount</th>
+              </tr>
+              <tr *ngFor="let i of expense">
+                <td>{{i.particular}}</td>
+                <td>{{i.amount}}</td>
+              </tr>
+              <tr>
+                <th>Total</th>
+                <th>{{totalExpense}}</th>
+              </tr>
+            </table>
+            <table class="col-sm-6 table-with-header">
+              <h4>Income</h4>
+              <tr>
+                <th>Particular</th>
+                <th>Amount</th>
+              </tr>
+              <tr *ngFor="let i of income">
+                <td>{{i.particular}}</td>
+                <td>{{i.amount}}</td>
+              </tr>
+              <tr>
+                <th>Total</th>
+                <th>{{totalIncome}}</th>
+              </tr>
+            </table>
+          </md-tab>
+          <md-tab label="Balance Sheet">
+            <h4>Balance Sheet</h4>
+          </md-tab>
+        </md-tab-group>
+      </md-card>
+    </div>
   </div>
 </div>

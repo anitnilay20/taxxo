@@ -7,10 +7,12 @@ import { CompanyComponent } from './dashboard/company/company.component';
 import { LedgersComponent } from './dashboard/ledgers/ledgers.component';
 import { VouchersComponent } from './dashboard/vouchers/vouchers.component';
 import { DashboardhomeComponent } from './dashboard/dashboardhome/dashboardhome.component'
+import { SigninComponent } from './signin/signin.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'signup', component: SignupComponent },
+  { path: 'signin', component: SigninComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   {
     path: 'dashboard', component: DashboardComponent,

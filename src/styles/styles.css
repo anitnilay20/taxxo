@@ -4494,7 +4494,8 @@ body,
 html {
   padding: 0;
   margin: 0;
-  font-family: 'Merriweather', serif; }
+  font-family: 'Merriweather', serif;
+  overflow-x: hidden; }
 
 h1,
 h2,
@@ -4579,6 +4580,9 @@ div[class^="col-sm-"] {
 .float-right {
   float: right; }
 
+.no-margin {
+  margin: 0; }
+
 .page-signup {
   background: #02182B;
   width: 100vw;
@@ -4593,7 +4597,9 @@ div[class^="col-sm-"] {
     box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.19);
     max-width: 500px;
     background: white;
-    padding: 0; }
+    padding: 0;
+    height: auto;
+    max-height: 90%; }
     .page-signup .container input {
       border: none;
       border-radius: 0;
@@ -4625,7 +4631,10 @@ div[class^="col-sm-"] {
       overflow-x: hidden;
       overflow-y: hidden; }
     .page-signup .container .form-container {
-      padding: 10px; }
+      padding: 10px;
+      overflow-y: auto;
+      height: auto;
+      max-height: 90vh; }
 
 .dashboard-header {
   font-size: 1em;
@@ -4654,7 +4663,7 @@ div[class^="col-sm-"] {
   .example-container md-sidenav {
     visibility: visible;
     width: 300px;
-    background: white;
+    background: #02182B;
     color: #084C61;
     height: 100vh; }
   .example-container .sidenav-internal {
@@ -4662,16 +4671,18 @@ div[class^="col-sm-"] {
     margin-top: 10px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     height: 100%;
-    background: white;
+    background: #02182B;
+    color: white;
     overflow: hidden; }
     @media screen and (max-width: 768px) {
       .example-container .sidenav-internal {
         margin-top: 50px; } }
   .example-container .icon-list {
     position: fixed;
-    background: white;
+    background: #02182B;
     margin-top: 10px;
     padding: 10px;
+    color: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     width: 70px;
     text-align: center;
@@ -4683,7 +4694,7 @@ div[class^="col-sm-"] {
     .example-container .icon-list:hover {
       width: 500px; }
     .example-container .icon-list i {
-      color: #02182B; }
+      color: white; }
   .example-container a {
     text-decoration: none;
     color: inherit; }
@@ -4695,13 +4706,18 @@ div[class^="col-sm-"] {
   width: 100%; }
   .dashboard-list md-list a {
     width: 100%; }
-    .dashboard-list md-list a md-list-item:hover {
-      background: #084C61;
-      color: white; }
+    .dashboard-list md-list a md-list-item {
+      color: white;
+      border-bottom: solid 1px #ccc; }
+      .dashboard-list md-list a md-list-item .mat-list-item-content {
+        color: white; }
+      .dashboard-list md-list a md-list-item:hover {
+        background: #084C61;
+        color: white; }
 
 .main-container {
   width: 100%;
-  padding: 5px; }
+  padding: 5px 5px 5px 0; }
   .main-container .container-right {
     margin-top: 30px;
     margin-left: 80px; }
@@ -4738,6 +4754,12 @@ div[class^="col-sm-"] {
   background-color: rgba(2, 24, 43, 0.5);
   background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.2) 25%, transparent 15%, transparent 30%, rgba(255, 255, 255, 0.2) 30%, rgba(255, 255, 255, 0.2) 55%, transparent 55%, transparent); }
 
+.mat-sidenav-content {
+  overflow-x: hidden; }
+
+.cdk-focus-trap-content {
+  overflow-x: hidden; }
+
 .side-bar-ativate {
   visibility: hidden;
   font-size: 1em; }
@@ -4748,33 +4770,32 @@ div[class^="col-sm-"] {
 table.two-tr-table, .table-with-header {
   width: 100%; }
   table.two-tr-table tr th, .table-with-header tr th {
-    background: #084C61;
+    background: #448FA3;
     color: white;
     padding: 10px; }
   table.two-tr-table tr td, .table-with-header tr td {
     padding: 10px; }
   table.two-tr-table tr:nth-child(odd), .table-with-header tr:nth-child(odd) {
-    border-bottom: 2px solid #B71C1C; }
+    border-bottom: 2px solid #FFC107; }
 
 .table-with-header {
   width: 50%; }
   @media screen and (max-width: 768px) {
     .table-with-header {
       width: 97%; } }
+  .table-with-header h4,
   .table-with-header h5 {
     background: #084C61;
     width: 187.5%;
     color: white;
     padding: 10px;
     margin: 0;
-    border-bottom: 1px #B71C1C solid; }
-    .table-with-header h5:nth-child(odd) {
-      border-right: 5px #B71C1C solid; }
+    border-bottom: 1px #084C61 solid; }
   .table-with-header tr:nth-child(odd) {
     border-bottom: none;
     background: #eee; }
   .table-with-header:nth-child(odd) {
-    border-right: 1px #B71C1C solid; }
+    border-right: 1px #084C61 solid; }
 
 .header-under {
   background: none;

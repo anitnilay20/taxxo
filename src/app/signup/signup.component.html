@@ -1,7 +1,7 @@
 <div class="page-signup">
   <div class="container container-fluid">
     <div class="col-sm-6 image-container">
-      <img src="./img/main.svg" alt="some-image" height="540px" />
+      <img src="./img/main.svg" alt="some-image" height="100%" />
     </div>
     <div class="col-sm-6 form-container">
       <form [formGroup]="signupform" (ngSubmit)="submit($event)">
@@ -14,24 +14,16 @@
         </md-input-container>
 
         <md-input-container>
-          <input mdInput formControlName="phone" placeholder="phone" type="number" size="50" [(ngModel)]="phone" />
+          <input mdInput formControlName="number" placeholder="phone" type="number" size="50" [(ngModel)]="phone" />
         </md-input-container>
 
         <md-input-container>
           <input mdInput formControlName="username" placeholder="username" type="text" size="50" />
         </md-input-container>
 
-        <md-input-container>
-          <input mdInput formControlName="firstname" placeholder="firstname" type="text" size="50" />
-        </md-input-container>
-
-        <md-input-container>
-          <input mdInput formControlName="lastname" placeholder="lastname" type="text" size="50" />
-        </md-input-container>
-
         <p-messages [value]="msgs"></p-messages>
         <md-input-container>
-          <input mdInput type="password" placeholder="Password" formControlName="password1" [(ngModel)]="password1" />
+          <input mdInput type="password" placeholder="Password" formControlName="password" [(ngModel)]="password1" />
         </md-input-container>
 
         <md-input-container>

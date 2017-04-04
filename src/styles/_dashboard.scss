@@ -32,7 +32,7 @@
   md-sidenav {
     visibility: visible;
     width: 300px;
-    background: white;
+    background: $color2;
     color: $color1;
     height: 100vh;
   }
@@ -42,7 +42,8 @@
     margin-top: 10px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     height: 100%;
-    background: white;
+    background: $color2;
+    color: white;
     @media screen and (max-width: 768px) {
       margin-top: 50px;
     }
@@ -51,9 +52,10 @@
 
   .icon-list {
     position: fixed;
-    background: white;
+    background: $color2;
     margin-top: 10px;
     padding: 10px;
+    color: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     width: 70px;
     text-align: center;
@@ -67,7 +69,7 @@
     }
 
     i {
-      color: $color2;
+      color: white;
     }
     transition: 1s;
   }
@@ -91,6 +93,13 @@
       width: 100%;
 
       md-list-item {
+        color: white;
+        border-bottom: solid 1px #ccc;
+
+        .mat-list-item-content {
+          color: white;
+        }
+
         &:hover {
           background: $color1;
           color: white;
@@ -102,7 +111,7 @@
 
 .main-container {
   width: 100%;
-  padding: 5px;
+  padding: 5px 5px 5px 0;
 
   .container-right {
     margin-top: 30px;
@@ -149,6 +158,14 @@
   background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 15%, transparent 30%, rgba(255, 255, 255, .2) 30%, rgba(255, 255, 255, .2) 55%, transparent 55%, transparent);
 }
 
+.mat-sidenav-content {
+  overflow-x: hidden;
+}
+
+.cdk-focus-trap-content {
+  overflow-x: hidden;
+}
+
 .side-bar-ativate {
   visibility: hidden;
   font-size: 1em;
@@ -164,7 +181,7 @@ table.two-tr-table {
 
   tr {
     th {
-      background: $color1;
+      background: $child-head;
       color: white;
       padding: 10px;
     }
@@ -174,7 +191,7 @@ table.two-tr-table {
     }
 
     &:nth-child(odd) {
-      border-bottom: 2px solid $base-head;
+      border-bottom: 2px solid $highlight;
     }
   }
 }
@@ -186,17 +203,14 @@ table.two-tr-table {
     width: 97%;
   }
 
+  h4,
   h5 {
     background: $color1;
     width: 187.5%;
     color: white;
     padding: 10px;
     margin: 0;
-    border-bottom: 1px $base-head solid;
-
-    &:nth-child(odd) {
-      border-right: 5px $base-head solid;
-    }
+    border-bottom: 1px $color1 solid;
   }
 
   tr {
@@ -207,7 +221,7 @@ table.two-tr-table {
   }
 
   &:nth-child(odd) {
-    border-right: 1px $base-head solid;
+    border-right: 1px $color1 solid;
   }
 }
 @import '_company.scss';

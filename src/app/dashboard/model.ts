@@ -19,6 +19,7 @@ export class Company {
 }
 
 export class User {
+  id: number;
   password: string;
   last_login: string;
   user_name: string;
