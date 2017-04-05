@@ -6,19 +6,15 @@
     <div class="col-sm-6 form-container">
       <form [formGroup]="signupform" (ngSubmit)="submit($event)">
         <md-input-container>
-          <input mdInput formControlName="name" placeholder="name" type="text" [(ngModel)]="name" pInputText/>
+          <input mdInput formControlName="name" placeholder="Name" type="text" [(ngModel)]="name" pInputText/>
         </md-input-container>
 
         <md-input-container>
-          <input mdInput formControlName="email" placeholder="email" type="email" size="25" [(ngModel)]="email" />
+          <input mdInput formControlName="email" placeholder="Email" type="email" size="25" [(ngModel)]="email" />
         </md-input-container>
 
         <md-input-container>
-          <input mdInput formControlName="number" placeholder="phone" type="number" size="50" [(ngModel)]="phone" />
-        </md-input-container>
-
-        <md-input-container>
-          <input mdInput formControlName="username" placeholder="username" type="text" size="50" />
+          <input mdInput formControlName="number" placeholder="Phone" type="number" size="50" [(ngModel)]="phone" />
         </md-input-container>
 
         <p-messages [value]="msgs"></p-messages>
