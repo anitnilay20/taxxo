@@ -1,46 +1,66 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-sm-4">
+    <div class="col-sm-8">
+      <div class="no-padding user-card margin-t-10">
+        <div class="rr rr-left">
+          <img src="http://cdn.playbuzz.com/cdn/05612ae3-0911-4e51-8ff5-0c5b1b580cbf/5c212545-2724-4231-9805-82e931028689.jpg" width="100%"
+            height="100%">
+        </div>
+        <div class="rr rr-right">
+          <div>
+            <h2>rr-right div</h2>
+            <p>Lorem ipsum dolor sit amet, dolore eu feugiat facilisis.</p>
+            <a md-mini-fab routerLink=".">
+              <md-icon>mode_edit</md-icon>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="col-sm-4 margin-t-10">
       <md-card>
         <h4>Select a Company</h4>
         <hr>
-        <md-list class="company-list">
-          <md-list-item class="hvr-sweep-to-right" (click)="selectCompany(company)" *ngFor="let company of companies">
+        <md-list class="company-list ">
+          <md-list-item class="hvr-sweep-to-right " (click)="selectCompany(company) " *ngFor="let company of companies ">
             {{company.name}}
           </md-list-item>
         </md-list>
       </md-card>
     </div>
-    <div class="col-sm-8">
-      <md-card *ngIf="selectedCompany">
+    <div class="col-sm-8 margin-t-10">
+      <md-card *ngIf="selectedCompany ">
         <h4>{{selectedCompany.name|uppercase}}'s REPORTS</h4>
         <md-tab-group>
-          <md-tab label="Trial Balance">
+          <md-tab label="Trial Balance ">
             <h4>Trial Balance</h4>
             <hr>
-            <table class="col-sm-12 two-tr-table">
+            <table class="col-sm-12 two-tr-table ">
               <tr>
                 <th>Particular</th>
                 <th>Debit</th>
                 <th>Credit</th>
               </tr>
-              <tr *ngFor="let tb of trialBalances">
+              <tr *ngFor="let tb of trialBalances ">
                 <td>{{tb.particular}}</td>
                 <td>{{tb.debitAmount}}</td>
                 <td>{{tb.creditAmount}}</td>
               </tr>
             </table>
           </md-tab>
-          <md-tab label="Profit & Loss">
+          <md-tab label="Profit & Loss ">
             <h4>Profit and loss</h4>
             <hr>
-            <table class="col-sm-6 table-with-header">
+            <table class="col-sm-6 table-with-header ">
               <h4>Expense</h4>
               <tr>
                 <th>Particular</th>
                 <th>Amount</th>
               </tr>
-              <tr *ngFor="let i of expense">
+              <tr *ngFor="let i of expense ">
                 <td>{{i.particular}}</td>
                 <td>{{i.amount}}</td>
               </tr>
@@ -49,13 +69,13 @@
                 <th>{{totalExpense}}</th>
               </tr>
             </table>
-            <table class="col-sm-6 table-with-header">
+            <table class="col-sm-6 table-with-header ">
               <h4>Income</h4>
               <tr>
                 <th>Particular</th>
                 <th>Amount</th>
               </tr>
-              <tr *ngFor="let i of income">
+              <tr *ngFor="let i of income ">
                 <td>{{i.particular}}</td>
                 <td>{{i.amount}}</td>
               </tr>
@@ -65,7 +85,7 @@
               </tr>
             </table>
           </md-tab>
-          <md-tab label="Balance Sheet">
+          <md-tab label="Balance Sheet ">
             <h4>Balance Sheet</h4>
           </md-tab>
         </md-tab-group>

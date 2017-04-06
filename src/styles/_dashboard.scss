@@ -1,7 +1,16 @@
+$pg-bg: #dcdcdc;
+$rr-bg: #232E39;
+$rr-bg-hover: darken($rr-bg, 10%);
+
+$rr-height: 300px;
+$rr-slant: 100px;
+$rr-gutter: 1%;
+$rr-width: 50%;
+
 .dashboard-header {
   font-size: 1em;
   position: fixed;
-  z-index: 1000;
+  z-index: 1;
   width: 100vw;
   height: 50px;
   @media screen and (max-width: 768px) {
@@ -32,17 +41,18 @@
   md-sidenav {
     visibility: visible;
     width: 300px;
-    background: $color2;
-    color: $color1;
+    background: $child-head;
+    color: black;
     height: 100vh;
+    z-index: 2;
   }
 
   .sidenav-internal {
     padding: 0;
-    margin-top: 10px;
+    margin-top: 0;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     height: 100%;
-    background: $color2;
+    background: white;
     color: white;
     @media screen and (max-width: 768px) {
       margin-top: 50px;
@@ -77,11 +87,7 @@
   a {
     text-decoration: none;
     color: inherit;
-
-    &:hover {
-      color: white;
-      background: $color1;
-    }
+    outline: none;
   }
 }
 
@@ -93,16 +99,10 @@
       width: 100%;
 
       md-list-item {
-        color: white;
-        border-bottom: solid 1px #ccc;
+        color: black;
 
         .mat-list-item-content {
-          color: white;
-        }
-
-        &:hover {
-          background: $color1;
-          color: white;
+          color: black;
         }
       }
     }
@@ -138,16 +138,6 @@
   left: 50px;
 }
 
-.cdk-focus-trap-content::-webkit-scrollbar {
-  width: 5px;
-  background-color: none;
-}
-
-.cdk-focus-trap-content::-webkit-scrollbar-thumb {
-  background-color: rgba(2, 24, 43, .5);
-  background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 15%, transparent 30%, rgba(255, 255, 255, .2) 30%, rgba(255, 255, 255, .2) 55%, transparent 55%, transparent);
-}
-
 .mat-sidenav-content::-webkit-scrollbar {
   width: 5px;
   background-color: none;
@@ -163,7 +153,9 @@
 }
 
 .cdk-focus-trap-content {
+  z-index: 2;
   overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 .side-bar-ativate {
@@ -181,8 +173,7 @@ table.two-tr-table {
 
   tr {
     th {
-      background: $child-head;
-      color: white;
+      color: $highlight;
       padding: 10px;
     }
 
@@ -222,6 +213,73 @@ table.two-tr-table {
 
   &:nth-child(odd) {
     border-right: 1px $color1 solid;
+  }
+}
+
+.user-card {
+  background: $child-head;
+
+  height: $rr-height;
+
+  h2 {
+    text-transform: uppercase;
+  }
+
+  .rr > div {
+    text-align: center;
+  }
+
+  // Construct the rectangles
+  .rr {
+    position: relative;
+    height: $rr-height;
+    background: $child-head;
+    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+
+    &.rr-left {
+      z-index: 1;
+      float: left;
+      width: $rr-width + 5%; // + 5% adjustment for slant offset
+    }
+
+    &.rr-right {
+      z-index: 2;
+      float: right;
+      width: $rr-width - $rr-gutter - 5%; // - 5% adjustment for slant offset
+    }
+  }
+
+  // Add slanted edges
+  .rr:after,
+  .rr:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .rr-left:after {
+    right: 0;
+    border-left: $rr-slant solid transparent;
+    border-bottom: $rr-height solid $pg-bg;
+  }
+
+  .rr-right:before {
+    left: -$rr-slant;
+    border-right: $rr-slant solid $child-head;
+    border-top: $rr-height solid rgba(0, 0, 0, 0); // overlaps .rr-left
+  }
+
+  // Add padding around inner content
+  .rr-left > div {
+    margin-right: $rr-slant;
+    margin-left: $rr-slant/2;
+  }
+
+  .rr-right > div {
+    margin-right: $rr-slant/2;
+    margin-left: $rr-slant/4;
   }
 }
 @import '_company.scss';
