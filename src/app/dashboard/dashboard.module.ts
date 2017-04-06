@@ -9,6 +9,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { LedgersComponent } from './ledgers/ledgers.component';
 import { VouchersComponent } from './vouchers/vouchers.component';
 import { DashboardhomeComponent } from './dashboardhome/dashboardhome.component';
+import { UserService } from '../signup/signup.service';
 
 @NgModule({
   imports: [

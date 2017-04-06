@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-sm-4">
       <md-card>
-        <h4>Select a Company</h4>
+        <h4 *ngIf="user">Select a Company</h4>
         <hr>
         <md-list class="company-list">
           <md-list-item class="hvr-sweep-to-right" (click)="selectCompany(company)" *ngFor="let company of companies">

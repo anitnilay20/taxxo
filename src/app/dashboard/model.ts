@@ -22,10 +22,10 @@ export class User {
   id: number;
   password: string;
   last_login: string;
-  user_name: string;
+  username: string;
   first_name: string;
   last_name: string;
-  email_address: string;
+  email: string;
   date_joined: Date;
   number: number;
   birth_date: Date;

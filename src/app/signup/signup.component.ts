@@ -74,7 +74,9 @@ export class SignupComponent implements OnInit {
       User => {
         this.users = User;
         this.signupform.reset;
-        this.snackbar.open("Registration Complete", 'X');
+        this.snackbar.open("Registration Complete", 'X', {
+          duration: 3000
+        });
         localStorage.setItem('user', String(User.id))
         this.router.navigate(['dashboard']);
       },
