@@ -29,6 +29,5 @@ export class DashboardComponent implements OnInit {
       )
   }
   public constructor(private titleService: Title, private router: Router, private userService: UserService) {
-    userService.getuser(localStorage.getItem('user'));
   }
 }

@@ -38,9 +38,9 @@ export class UserService {
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let option = new RequestOptions({ headers: headers });
 
-        return this.http.get(this.userUrl + id, option)
+        return this.http.get(this.userUrl + id + '/', option)
             .map((res: Response) => res.json())
-            .do(User => { this.user.next(User); }).share()
+            .do(User => { this.user.next(User); console.log(this.user) }).share()
             .catch(this.handleError);
     }
 

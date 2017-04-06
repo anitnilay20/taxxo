@@ -1,11 +1,12 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { Company, Ledgers, Voucher } from '../model';
+import { Company, Ledgers, Voucher, User } from '../model';
 import { CalendarModule } from 'primeng/primeng';
 import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
 import { MdSnackBar } from '@angular/material';
 import { LedgersService } from '../ledgers/ledgers.service';
 import { VoucherService } from './vouchers.service';
+import { UserService } from '../../signup/signup.service';
 
 
 @Component({
@@ -22,6 +23,7 @@ export class VouchersComponent implements OnInit {
     amount: number;
     narration: string;
     error: string;
+    user: User;
     selectedCompany = localStorage.getItem('companyName');
     ngOnInit() {
         this.titleService.setTitle("Your Dashboard || Vouchers");
@@ -62,5 +64,6 @@ export class VouchersComponent implements OnInit {
             );
 
     }
-    public constructor(private titleService: Title, private LedgersService: LedgersService, public snackbar: MdSnackBar, private VoucherService: VoucherService) { }
+    public constructor(private titleService: Title, private LedgersService: LedgersService, public snackbar: MdSnackBar, private VoucherService: VoucherService, private userService: UserService) {
+    }
 }
