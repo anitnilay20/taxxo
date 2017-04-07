@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { CompanyService } from '../company/company.service';
 import { Title } from '@angular/platform-browser';
-import { Company, TrialBalance, ProfitLoss } from '../model';
+import { Company, TrialBalance, ProfitLoss, User } from '../model';
 import { MdSnackBar } from '@angular/material';
+import { UserService } from '../../signup/signup.service';
+import { Observable } from "rxjs";
 
 @Component({
 	selector: 'dashboardhome',
@@ -19,6 +21,7 @@ export class DashboardhomeComponent implements OnInit {
 	income: any[];
 	totalExpense: number;
 	totalIncome: number;
+	user: User;
 	getCompany() {
 		this.companyService.getCompany()
 			.subscribe(
@@ -74,7 +77,12 @@ export class DashboardhomeComponent implements OnInit {
 		this.totalIncome = totalIncome;
 	}
 
-	constructor(private titleService: Title, private companyService: CompanyService, public snackbar: MdSnackBar) { }
+	constructor(private titleService: Title, private companyService: CompanyService, public snackbar: MdSnackBar, public userService: UserService) {
+		userService.user$.subscribe(
+			User => {
+				this.user = User;
+			});
+	}
 
 	ngOnInit() {
 		this.titleService.setTitle('Your Dashboard || Home');

@@ -2,6 +2,7 @@
   <div class="col-sm-8 voucher-form-container">
     <md-tab-group>
       <md-tab label="Contra">
+        <span *ngIf="user">{{user.email}}</span>
         <br>
         <md-select (change)="changeFirstAc($event)" placeholder="First Account">
           <md-option *ngFor="let ledger of ledgers" [value]="ledger">{{ ledger.name }}</md-option>

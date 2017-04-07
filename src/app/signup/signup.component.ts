@@ -67,13 +67,16 @@ export class SignupComponent implements OnInit {
   signup() {
     let formobj = this.signupform.getRawValue();
     formobj['is_superuser'] = false;
+    formobj['username'] = formobj.email;
     let data = JSON.stringify(formobj);
     this.userService.addUser(data)
       .subscribe(
       User => {
         this.users = User;
         this.signupform.reset;
-        this.snackbar.open("Registration Complete", 'X');
+        this.snackbar.open("Registration Complete", 'X', {
+          duration: 3000
+        });
         localStorage.setItem('user', String(User.id))
         this.router.navigate(['dashboard']);
       },
@@ -81,6 +84,7 @@ export class SignupComponent implements OnInit {
         let error = Error.replace(/["{}\[\]]/g, '');
         error = error.replace(/[\:]/g, ' ');
         error = error.replace(/400 - Bad Request username/i, ' ')
+        error = error.replace(/username/i, 'Email')
         this.msgs.push({ severity: 'error', summary: 'Error Message', detail: error });
       }
       );
