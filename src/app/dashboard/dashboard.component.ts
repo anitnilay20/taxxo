@@ -7,6 +7,7 @@ import { UserService } from '../signup/signup.service';
 @Component({
   selector: 'dashboard',
   templateUrl: 'dashboard.component.html',
+  providers: [UserService]
 })
 
 export class DashboardComponent implements OnInit {

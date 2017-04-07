@@ -13,7 +13,6 @@ import { MaterialModule } from '@angular/material';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { CompanyService } from './dashboard/company/company.service'
 import { SigninComponent } from './signin/signin.component';
-import { UserService } from './signup/signup.service';
 import 'hammerjs'
 
 @NgModule({
@@ -38,6 +37,6 @@ import 'hammerjs'
     SigninComponent
   ],
   bootstrap: [AppComponent],
-  providers: [CompanyService, UserService]
+  providers: [CompanyService]
 })
 export class AppModule { }
