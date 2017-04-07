@@ -1,19 +1,18 @@
-$base-head: #B71C1C;
-$base-head-highlight: #E53935;
-$child-head: #448FA3;
-$highlight: #FFC107;
-$color1: #084C61;
-$color2: #02182B;
+$base-head: #01579B;
+$base-head-highlight: #E65100;
+$child-head: #F18805;
+$highlight: #E2C044;
+$color1: #335596;
+$color2: #0d1732;
 @import '_loading-animation.scss';
 @import 'https://fonts.googleapis.com/css?family=Merriweather|Acme|Josefin+Sans';
 @import '../../node_modules/@angular/material/core/theming/_all-theme.scss';
 @import 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css';
 @import './hover/hover.scss';
 @include mat-core();
-
-$candy-app-primary: mat-palette($mat-red, 900);
+$candy-app-primary: mat-palette($mat-light-blue, 500);
 $candy-app-accent: mat-palette($mat-amber, A400, A100, A200);
-$candy-app-warn: mat-palette($mat-red, A200);
+$candy-app-warn: mat-palette($mat-red, 900);
 $candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-app-warn);
 @include angular-material-theme($candy-app-theme);
 @mixin form-input() {
@@ -23,6 +22,7 @@ $candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-
     margin: 5px;
     padding: 10px;
     width: 100%;
+    background: transparent;
 
     &:focus {
       outline: none;
@@ -134,7 +134,7 @@ div[class^="col-sm-"] {
 }
 
 .no-padding {
-  padding: 0;
+  padding: 0 !important;
 }
 
 .no-padding-mobile {
@@ -148,7 +148,11 @@ div[class^="col-sm-"] {
 }
 
 .no-margin {
-  margin: 0;
+  margin: 0 !important;
+}
+
+.margin-t-10 {
+  margin-top: 10px;
 }
 
 .hr-text {
