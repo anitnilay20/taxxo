@@ -12,10 +12,7 @@ export class UserService {
     private user = new Subject<User>();
     user$ = this.user.asObservable();
     private userUrl = 'http://52.37.146.59/customer/';
-    constructor(private http: Http) {
-        console.log("Service");
-        this.getuser(localStorage.getItem('user'));
-    }
+    constructor(private http: Http) { }
 
     addUser(data: any): Observable<User> {
         console.log(data);
@@ -43,7 +40,7 @@ export class UserService {
 
         return this.http.get(this.userUrl + id + '/', option)
             .map((res: Response) => res.json())
-            .do(User => { this.user.next(User); console.log(this.user) }).share()
+            .do(User => { this.user.next(User); }).share()
             .catch(this.handleError);
     }
 

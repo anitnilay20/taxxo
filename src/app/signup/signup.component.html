@@ -4,7 +4,7 @@
       <img src="./img/main.svg" alt="some-image" height="100%" />
     </div>
     <div class="col-sm-6 form-container">
-      <form [formGroup]="signupform" (ngSubmit)="submit($event)">
+      <form [formGroup]="signupform">
         <md-input-container>
           <input mdInput formControlName="name" placeholder="Name" type="text" [(ngModel)]="name" pInputText/>
         </md-input-container>
@@ -19,11 +19,11 @@
 
         <p-messages [value]="msgs"></p-messages>
         <md-input-container>
-          <input mdInput type="password" placeholder="Password" formControlName="password" [(ngModel)]="password1" />
+          <input mdInput type="password" placeholder="Password" formControlName="password" />
         </md-input-container>
 
         <md-input-container>
-          <input mdInput type="password" placeholder="Retype Password" formControlName="password2" [(ngModel)]="password2" />
+          <input mdInput type="password" placeholder="Retype Password" formControlName="password2" />
         </md-input-container>
 
         <button md-button type="button" (click)="onsubmit()" class="form-button">Sign Up</button>

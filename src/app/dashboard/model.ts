@@ -89,3 +89,9 @@ export class ProfitLoss {
   import: ProfitLossData;
 }
 
+export class BalanceSheet {
+  current_assets: any;
+  loans_liability: any;
+  curent_liabilities: any;
+  capital_account: any;
+}

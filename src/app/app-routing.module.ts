@@ -8,6 +8,7 @@ import { LedgersComponent } from './dashboard/ledgers/ledgers.component';
 import { VouchersComponent } from './dashboard/vouchers/vouchers.component';
 import { DashboardhomeComponent } from './dashboard/dashboardhome/dashboardhome.component'
 import { SigninComponent } from './signin/signin.component';
+import { DashboardAuth } from './dashboard/dashboardhome/dashboard-auth.service'
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -15,7 +16,7 @@ const appRoutes: Routes = [
   { path: 'signin', component: SigninComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   {
-    path: 'dashboard', component: DashboardComponent,
+    path: 'dashboard', component: DashboardComponent, canActivate: [DashboardAuth],
     children: [
       { path: 'company', component: CompanyComponent },
       { path: 'ledgers', component: LedgersComponent },
@@ -32,6 +33,9 @@ const appRoutes: Routes = [
   ],
   exports: [
     RouterModule
+  ],
+  providers: [
+    DashboardAuth
   ]
 })
 export class AppRoutingModule { }

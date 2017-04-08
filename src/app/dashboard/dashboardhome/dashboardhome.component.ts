@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CompanyService } from '../company/company.service';
 import { Title } from '@angular/platform-browser';
-import { Company, TrialBalance, ProfitLoss, User } from '../model';
+import { Company, TrialBalance, ProfitLoss, User, BalanceSheet } from '../model';
 import { MdSnackBar } from '@angular/material';
 import { UserService } from '../../signup/signup.service';
 import { Observable } from "rxjs";
@@ -22,6 +22,13 @@ export class DashboardhomeComponent implements OnInit {
 	totalExpense: number;
 	totalIncome: number;
 	user: User;
+	currentDate: Date;
+	balanceSheets: BalanceSheet;
+	current_assets: any[];
+	loans_liability: any[];
+	curent_liabilities: any[];
+	capital_account: any[];
+
 	getCompany() {
 		this.companyService.getCompany()
 			.subscribe(
@@ -33,7 +40,7 @@ export class DashboardhomeComponent implements OnInit {
 	getTrialBalance(company: Company) {
 		this.companyService.getTrialBalance(company.id)
 			.subscribe(
-			TrialBalance => { this.trialBalances = TrialBalance; console.log(this.trialBalances); },
+			TrialBalance => { this.trialBalances = TrialBalance; console.log(this.trialBalances) },
 			error => { console.log(error); }
 			);
 	}
@@ -51,9 +58,24 @@ export class DashboardhomeComponent implements OnInit {
 			);
 	}
 
+	getBalancesheet(company: Company) {
+		this.companyService.getBalanceSheet(company.id)
+			.subscribe(
+			BALANCESHEET => {
+				this.capital_account = BALANCESHEET['capital_account']
+				this.curent_liabilities = BALANCESHEET['current_liabilities']
+				this.current_assets = BALANCESHEET['current_assets']
+				this.loans_liability = BALANCESHEET['loans_liability']
+			},
+			error => { console.log(error); }
+			);
+	}
+
+
 	selectCompany(company: Company) {
 		this.getProfitLoss(company);
 		this.getTrialBalance(company);
+		this.getBalancesheet(company);
 		this.selectedCompany = company;
 		localStorage.setItem('company', String(company.id));
 		localStorage.setItem('companyName', company.name);
@@ -87,5 +109,6 @@ export class DashboardhomeComponent implements OnInit {
 	ngOnInit() {
 		this.titleService.setTitle('Your Dashboard || Home');
 		this.getCompany();
+		this.currentDate = new Date();
 	}
 }

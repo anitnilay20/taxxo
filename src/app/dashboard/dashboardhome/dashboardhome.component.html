@@ -8,9 +8,9 @@
         </div>
         <div class="rr rr-right">
           <div>
-            <h2>rr-right div</h2>
-            <p>Lorem ipsum dolor sit amet, dolore eu feugiat facilisis.</p>
-            <a md-mini-fab routerLink=".">
+            <h2>Welcome</h2>
+            <p *ngIf="user">{{user.email}}</p>
+            <a md-mini-fab>
               <md-icon>mode_edit</md-icon>
             </a>
           </div>
@@ -22,7 +22,7 @@
 
     <div class="col-sm-4 margin-t-10">
       <md-card>
-        <h4 *ngIf="user">Select a Company{{user.email}}</h4>
+        <h4>Select a Company</h4>
         <hr>
         <md-list class="company-list ">
           <md-list-item class="hvr-sweep-to-right " (click)="selectCompany(company) " *ngFor="let company of companies ">
@@ -33,7 +33,7 @@
     </div>
     <div class="col-sm-8 margin-t-10">
       <md-card *ngIf="selectedCompany ">
-        <h4>{{selectedCompany.name|uppercase}}'s REPORTS</h4>
+        <h4>{{selectedCompany.name|uppercase}}'s REPORTS as of {{currentDate | date}}</h4>
         <md-tab-group>
           <md-tab label="Trial Balance ">
             <h4>Trial Balance</h4>
@@ -45,9 +45,9 @@
                 <th>Credit</th>
               </tr>
               <tr *ngFor="let tb of trialBalances ">
-                <td>{{tb.particular}}</td>
-                <td>{{tb.debitAmount}}</td>
-                <td>{{tb.creditAmount}}</td>
+                <td>{{tb.name}}</td>
+                <td><span *ngIf="tb.opening_balance>0">{{tb.opening_balance}}</span></td>
+                <td><span *ngIf="tb.opening_balance<0">{{tb.opening_balance - tb.opening_balance - tb.opening_balance}}</span></td>
               </tr>
             </table>
           </md-tab>
@@ -69,7 +69,7 @@
                 <th>{{totalExpense}}</th>
               </tr>
             </table>
-            <table class="col-sm-6 table-with-header ">
+            <table class="col-sm-6 table-with-header">
               <h4>Income</h4>
               <tr>
                 <th>Particular</th>
@@ -87,6 +87,47 @@
           </md-tab>
           <md-tab label="Balance Sheet ">
             <h4>Balance Sheet</h4>
+            <hr>
+            <div *ngIf="current_assets" class="col-sm-6">
+              <h4>Assets</h4>
+              <table class="table-with-header">
+                <tr *ngFor="let i of current_assets">
+                  <td>{{i.name}}</td>
+                  <td>{{i.opening_balance}}</td>
+                </tr>
+              </table>
+            </div>
+
+            <div *ngIf="loans_liability" class="col-sm-6">
+              <h4>Loans Liability</h4>
+              <table class="table-with-header">
+                <tr *ngFor="let i of loans_liability">
+                  <td>{{i.name}}</td>
+                  <td>{{i.opening_balance}}</td>
+                </tr>
+              </table>
+            </div>
+
+            <div *ngIf="curent_liabilities" class="col-sm-6">
+              <h4>Current Liability</h4>
+              <table class="table-with-header">
+                <tr *ngFor="let i of curent_liabilities">
+                  <td>{{i.name}}</td>
+                  <td>{{i.opening_balance}}</td>
+                </tr>
+              </table>
+            </div>
+
+            <div *ngIf="capital_account" class="col-sm-6">
+              <h4>Capital Account</h4>
+              <table class="table-with-header">
+                <tr *ngFor="let i of capital_account">
+                  <td>{{i.name}}</td>
+                  <td>{{i.opening_balance}}</td>
+                </tr>
+              </table>
+            </div>
+
           </md-tab>
         </md-tab-group>
       </md-card>

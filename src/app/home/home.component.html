@@ -29,15 +29,15 @@
 
     <form [formGroup]="signupform" (ngSubmit)="redirect_to_signup($event)">
       <md-input-container>
-        <input mdInput placeholder="Name" formControlName="name" type="text" size="50" [(ngModel)]="name" required pInputText/>
+        <input mdInput placeholder="Name" formControlName="name" type="text" size="50" required pInputText/>
       </md-input-container>
 
       <md-input-container>
-        <input mdInput placeholder="Email" formControlName="email" type="email" size="25" [(ngModel)]="email" required pInputText/>
+        <input mdInput placeholder="Email" formControlName="email" type="email" size="25" required pInputText/>
       </md-input-container>
 
       <md-input-container>
-        <input mdInput placeholder="Phone Number" formControlName="phone" type="number" size="50" [(ngModel)]="phone" required pInputText/>
+        <input mdInput placeholder="Phone Number" formControlName="phone" type="number" size="50" required pInputText/>
       </md-input-container>
 
       <button md-button type="submit" class="form-button">Try For Free</button>

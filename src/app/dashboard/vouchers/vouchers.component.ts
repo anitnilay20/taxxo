@@ -52,7 +52,7 @@ export class VouchersComponent implements OnInit {
     dataObject['amount'] = this.amount;
     dataObject['narration'] = this.narration;
     dataObject['company'] = localStorage.getItem('company');
-    dataObject['addedBy'] = 3;
+    dataObject['addedBy'] = parseInt(localStorage.getItem('user'));
     let data = JSON.stringify(dataObject);
     this.voucherService.addVoucher(data, type)
       .subscribe(

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
-import { Company, Activity, TrialBalance, ProfitLoss } from '../model'
+import { Company, Activity, TrialBalance, ProfitLoss, BalanceSheet } from '../model'
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 
@@ -12,7 +12,9 @@ export class CompanyService {
   private current_company = localStorage.getItem('company')
 
   getCompany(): Observable<Company[]> {
-    return this.http.get(this.companyUrl)
+    let headers = new Headers({ 'ADMIN': localStorage.getItem('user') })
+    let option = new RequestOptions({ headers: headers });
+    return this.http.get(this.companyUrl, option)
       .map((res: Response) => res.json())
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }
@@ -27,7 +29,7 @@ export class CompanyService {
   }
 
   getTrialBalance(id: number): Observable<TrialBalance[]> {
-    let url = 'http://52.37.146.59/trialbalance/';
+    let url = 'http://52.37.146.59/ledgers/';
     let headers = new Headers({ 'COMPANY': id })
     let option = new RequestOptions({ headers: headers });
     return this.http.get(url, option)
@@ -52,6 +54,15 @@ export class CompanyService {
     return this.http.post(this.companyUrl, data, option)
       .map((res: Response) => res.json())
       .catch(this.handleError);
+  }
+
+  getBalanceSheet(id: number): Observable<BalanceSheet> {
+    let url = 'http://52.37.146.59/trialbalance/balancesheet';
+    let headers = new Headers({ 'COMPANY': id })
+    let option = new RequestOptions({ headers: headers });
+    return this.http.get(url, option)
+      .map((res: Response) => res.json())
+      .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }
 
   private handleError(error: Response | any) {
