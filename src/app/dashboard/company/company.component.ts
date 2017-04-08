@@ -67,8 +67,9 @@ export class CompanyComponent implements OnInit {
   }
 
   addCompany() {
+    let admin = [localStorage.getItem('user')];
     let formobj = this.addCompanyForm.getRawValue();
-    formobj['admin'] = parseInt(localStorage.getItem('user'));
+    formobj['admin'] = admin;
     formobj['accounts_with_inventory'] = this.accounts_with_inventory;
     formobj['show_amounts_in_millions'] = this.show_amounts_in_millions;
     let data = JSON.stringify(formobj);
