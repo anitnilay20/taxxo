@@ -28,7 +28,7 @@ import 'hammerjs'
     MaterialModule,
     RouterModule,
     HttpModule,
-    JsonpModule
+    JsonpModule,
   ],
   declarations: [
     AppComponent,
