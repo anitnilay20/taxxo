@@ -8,16 +8,17 @@ import { UserService } from '../../signup/signup.service';
 	providers: []
 })
 
-export class Userdetailcomponent implements OnInit{
+export class Userdetailcomponent implements OnInit {
 	user: User;
 
 	constructor(public userService: UserService) {
-	}
-
-	ngOnInit(){
-		this.userService.user$.subscribe(
+		userService.user$.subscribe(
 			User => {
 				this.user = User;
 			});
+	}
+
+	ngOnInit() {
+
 	}
 }

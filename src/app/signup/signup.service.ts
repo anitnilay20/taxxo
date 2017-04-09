@@ -12,7 +12,10 @@ export class UserService {
     private user = new Subject<User>();
     user$ = this.user.asObservable();
     private userUrl = 'http://52.37.146.59/customer/';
-    constructor(private http: Http) { }
+    public users: any = "ola";
+    constructor(private http: Http) {
+
+    }
 
     addUser(data: any): Observable<User> {
         console.log(data);

@@ -13,6 +13,8 @@ import { MaterialModule } from '@angular/material';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { CompanyService } from './dashboard/company/company.service'
 import { SigninComponent } from './signin/signin.component';
+import { RouteReuseStrategy } from "@angular/router";
+import { CustomReuseStrategy } from './custom-reuse-strategy';
 import 'hammerjs'
 
 @NgModule({
@@ -37,6 +39,9 @@ import 'hammerjs'
     SigninComponent
   ],
   bootstrap: [AppComponent],
-  providers: [CompanyService]
+  providers: [
+    CompanyService,
+    { provide: RouteReuseStrategy, useClass: CustomReuseStrategy }
+  ]
 })
 export class AppModule { }
