@@ -10,6 +10,7 @@ import { LedgersComponent } from './ledgers/ledgers.component';
 import { VouchersComponent } from './vouchers/vouchers.component';
 import { DashboardhomeComponent } from './dashboardhome/dashboardhome.component';
 import { UserService } from '../signup/signup.service';
+import { Userdetailcomponent } from './user-detail/user-detail.component' 
 
 @NgModule({
   imports: [
@@ -25,7 +26,8 @@ import { UserService } from '../signup/signup.service';
     CompanyComponent,
     LedgersComponent,
     VouchersComponent,
-    DashboardhomeComponent
+    DashboardhomeComponent,
+    Userdetailcomponent
   ],
   providers: [
     Title
