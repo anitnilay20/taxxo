@@ -10,7 +10,8 @@ import { LedgersComponent } from './ledgers/ledgers.component';
 import { VouchersComponent } from './vouchers/vouchers.component';
 import { DashboardhomeComponent } from './dashboardhome/dashboardhome.component';
 import { UserService } from '../signup/signup.service';
-import { Userdetailcomponent } from './user-detail/user-detail.component' 
+import { Userdetailcomponent } from './user-detail/user-detail.component'; 
+import { Reportcomponent } from './report/report.component'
 
 @NgModule({
   imports: [
@@ -27,7 +28,8 @@ import { Userdetailcomponent } from './user-detail/user-detail.component'
     LedgersComponent,
     VouchersComponent,
     DashboardhomeComponent,
-    Userdetailcomponent
+    Userdetailcomponent,
+    Reportcomponent
   ],
   providers: [
     Title
