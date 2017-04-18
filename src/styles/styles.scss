@@ -190,5 +190,27 @@ div[class^="col-sm-"] {
     background-color: #fcfcfa;
   }
 }
+
+.white-bg {
+  background: white;
+}
+
+.form-button {
+  background: $highlight;
+  border: none;
+  margin: 5px;
+  padding: 10px;
+  width: 100%;
+
+  &:hover {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+    background: #f6a83c;
+    text-decoration: none;
+  }
+}
+
+.text-center {
+  text-align: center;
+}
 @import '_signup.scss';
 @import '_dashboard.scss';

@@ -1,103 +1,86 @@
-<div class="row vouchers-container">
-  <div class="col-sm-8 voucher-form-container">
-    <md-tab-group>
-      <md-tab label="Contra">
-        <span *ngIf="user">{{user.email}}</span>
-        <br>
-        <md-select (change)="changeFirstAc($event)" placeholder="First Account">
-          <md-option *ngFor="let ledger of ledgers" [value]="ledger">{{ ledger.name }}</md-option>
-        </md-select>
-        <md-select (change)="changeSecondAc($event)" placeholder="Second Account">
-          <md-option *ngFor="let ledger of ledgers" [value]="ledger">{{ ledger.name }}</md-option>
-        </md-select>
-        <md-input-container>
-          <input type="number" [(ngModel)]='amount' mdInput placeholder="Amount">
-        </md-input-container>
-        <md-input-container>
-          <input type="text" [(ngModel)]='narration' mdInput placeholder="Narration">
-        </md-input-container>
-        <a md-fab (click)="addVouchers('contra')">
-          <md-icon>check</md-icon>
-        </a>
-      </md-tab>
-      <md-tab label="Payment">
-        <br>
-        <md-select (change)="changeFirstAc($event)" placeholder="First Account">
-          <md-option *ngFor="let ledger of ledgers" [value]="ledger">{{ ledger.name }}</md-option>
-        </md-select>
-        <md-select (change)="changeSecondAc($event)" placeholder="Second Account">
-          <md-option *ngFor="let ledger of ledgers" [value]="ledger">{{ ledger.name }}</md-option>
-        </md-select>
-        <md-input-container>
-          <input type="number" [(ngModel)]='amount' mdInput placeholder="Amount">
-        </md-input-container>
-        <md-input-container>
-          <input type="text" [(ngModel)]='narration' mdInput placeholder="Narration">
-        </md-input-container>
-        <a md-fab (click)="addVouchers('payment')">
-          <md-icon>check</md-icon>
-        </a>
-      </md-tab>
-      <md-tab label="Receipt">
-        <br>
-        <md-select (change)="changeFirstAc($event)" placeholder="First Account">
-          <md-option *ngFor="let ledger of ledgers" [value]="ledger">{{ ledger.name }}</md-option>
-        </md-select>
-        <md-select (change)="changeSecondAc($event)" placeholder="Second Account">
-          <md-option *ngFor="let ledger of ledgers" [value]="ledger">{{ ledger.name }}</md-option>
-        </md-select>
-        <md-input-container>
-          <input type="number" [(ngModel)]='amount' mdInput placeholder="Amount">
-        </md-input-container>
-        <md-input-container>
-          <input type="text" [(ngModel)]='narration' mdInput placeholder="Narration">
-        </md-input-container>
-        <a md-fab (click)="addVouchers('receipt')">
-          <md-icon>check</md-icon>
-        </a>
-      </md-tab>
-      <md-tab label="Income">
-        <br>
-        <md-select (change)="changeFirstAc($event)" placeholder="Party Account">
-          <md-option *ngFor="let ledger of ledgers" [value]="ledger">{{ ledger.name }}</md-option>
-        </md-select>
-        <md-select (change)="changeSecondAc($event)" placeholder="Income Account">
-          <md-option *ngFor="let ledger of ledgers" [value]="ledger">{{ ledger.name }}</md-option>
-        </md-select>
-        <md-input-container>
-          <input type="number" [(ngModel)]='amount' mdInput placeholder="Amount">
-        </md-input-container>
-        <md-input-container>
-          <input type="text" [(ngModel)]='narration' mdInput placeholder="Narration">
-        </md-input-container>
-        <a md-fab (click)="addVouchers('income')">
-          <md-icon>check</md-icon>
-        </a>
-      </md-tab>
-      <md-tab label="Expense">
-        <br>
-        <md-select (change)="changeFirstAc($event)" placeholder="Payement Account">
-          <md-option *ngFor="let ledger of ledgers" [value]="ledger">{{ ledger.name }}</md-option>
-        </md-select>
-        <md-select (change)="changeSecondAc($event)" placeholder="Party Account">
-          <md-option *ngFor="let ledger of ledgers" [value]="ledger">{{ ledger.name }}</md-option>
-        </md-select>
-        <md-input-container>
-          <input type="number" [(ngModel)]='amount' mdInput placeholder="Amount">
-        </md-input-container>
-        <md-input-container>
-          <input type="text" [(ngModel)]='narration' mdInput placeholder="Narration">
-        </md-input-container>
-        <a md-fab (click)="addVouchers('expense')">
-          <md-icon>check</md-icon>
-        </a>
-      </md-tab>
-    </md-tab-group>
-  </div>
-  <div class="col-sm-4 no-padding-mobile">
-    <md-card>
-      <h5 *ngIf="!selectedCompany">No company selected. Please Select a company from company tab.</h5>
-      <h5 *ngIf="selectedCompany">Using {{selectedCompany}}</h5>
-    </md-card>
+<div class="container-fluid">
+  <div class="row vouchers-container">
+    <div class="col-sm-8 voucher-form-container" *ngIf="ledgers">
+      <md-tab-group>
+        <md-tab label="Journal">
+          <br>
+          <md-input-container>
+            <input type="date" mdInput placeholder="Date" [(ngModel)]="voucherDate">
+          </md-input-container>
+          <form (submit)="addRows()">
+            <div class="voucher-form" *ngFor="let row of rows; let i = index">
+              <md-select placeholder="Type" (change)="selectType($event,i)">
+                <md-option [value]="'credit'">Credit</md-option>
+                <md-option [value]="'debit'">Debit</md-option>
+              </md-select>
+              <md-input-container>
+                <input required #firstAcInput mdInput placeholder="Account" [mdAutocomplete]="auto" (keyup)="filterLedger(firstAcInput.value)"
+                  (blur)="selectLedger(firstAcInput.value, i)">
+              </md-input-container>
+              <md-autocomplete #auto="mdAutocomplete">
+                <md-option *ngFor="let ledger of filteredLedger" [value]="ledger.name" (click)="selectLedger(firstAcInput.value, i)">
+                  <span>{{ ledger.name }}</span>
+                </md-option>
+              </md-autocomplete>
+              <md-input-container>
+                <input #amountInput mdInput type="number" placeholder="Amount" required (change)="selectAmount(amountInput.value, i)" />
+              </md-input-container>
+              <button md-button type="submit"><md-icon>add</md-icon></button>
+              <hr>
+            </div>
+          </form>
+          <div class="col-sm-12">
+            <md-input-container style="width:100%">
+              <input mdInput type="text" [(ngModel)]="narration" placeholder="Narration">
+            </md-input-container>
+          </div>
+        </md-tab>
+        <md-tab label="Sales">
+          <br>
+        </md-tab>
+        <md-tab label="Purchase">
+          <br>
+        </md-tab>
+        <md-tab label="Income">
+          <br>
+        </md-tab>
+        <md-tab label="Expense">
+          <br>
+        </md-tab>
+      </md-tab-group>
+    </div>
+
+    <div class="col-sm-4 no-padding-mobile">
+      <md-card>
+        <h5 *ngIf="!selectedCompany">No company selected. Please Select a company from company tab.</h5>
+        <h5 *ngIf="selectedCompany">Using {{selectedCompany}}</h5>
+      </md-card>
+    </div>
+
+    <div class="col-sm-8 white-bg no-padding">
+      <md-card>
+        <div class="row text-center">
+
+          <div class="col-sm-4">
+            <h4>Debit</h4>
+            <md-input-container>
+              <input readonly="readonly" mdInput type="number" [(ngModel)]="totalDebit" />
+            </md-input-container>
+          </div>
+          <div class="col-sm-4">
+            <h4>Credit</h4>
+            <md-input-container>
+              <input readonly="readonly" mdInput type="number" [(ngModel)]="totalCredit" />
+            </md-input-container>
+          </div>
+          <div class="col-sm-4">
+            <h4>Submit</h4>
+            <button (click)="addJournal()" class="form-button" [disabled]="checkTotal()" md-button><md-icon>check</md-icon></button>
+          </div>
+          <span style="color:red">{{totalError}}</span>
+        </div>
+      </md-card>
+    </div>
+
   </div>
 </div>

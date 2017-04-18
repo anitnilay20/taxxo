@@ -16,7 +16,6 @@ import { LedgersService } from './ledgers.service'
 
 export class LedgersComponent implements OnInit {
   ledgers: Ledgers[];
-  mode: 'Observable';
   error: string;
   inventory: boolean;
   groups: string;

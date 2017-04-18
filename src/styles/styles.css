@@ -4598,7 +4598,7 @@ div[class^="col-sm-"] {
   opacity: .5; }
   .hr-text:before {
     content: '';
-    background: linear-gradient(to right, transparent, #B71C1C, transparent);
+    background: linear-gradient(to right, transparent, #01579B, transparent);
     position: absolute;
     left: 0;
     top: 50%;
@@ -4613,6 +4613,23 @@ div[class^="col-sm-"] {
     line-height: 1.5em;
     color: #818078;
     background-color: #fcfcfa; }
+
+.white-bg {
+  background: white; }
+
+.form-button {
+  background: #E2C044;
+  border: none;
+  margin: 5px;
+  padding: 10px;
+  width: 100%; }
+  .form-button:hover {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+    background: #f6a83c;
+    text-decoration: none; }
+
+.text-center {
+  text-align: center; }
 
 .page-signup {
   background: #0d1732;
@@ -4679,7 +4696,10 @@ div[class^="col-sm-"] {
     .dashboard-header {
       height: auto; } }
   .dashboard-header h3 {
-    float: left; }
+    margin: 0;
+    display: inline-block; }
+    .dashboard-header h3 img {
+      width: 110px; }
   .dashboard-header li {
     cursor: pointer; }
 
@@ -4858,6 +4878,33 @@ table.two-tr-table, .table-with-header {
   .user-card .rr-right > div {
     margin-right: 50px;
     margin-left: 25px; }
+  .user-card .icon-bottom {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 75px;
+    height: 75px;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+    @media screen and (max-width: 768px) {
+      .user-card .icon-bottom {
+        width: 40px;
+        height: 40px; } }
+    .user-card .icon-bottom md-icon {
+      font-size: 35px;
+      margin: auto; }
+      @media screen and (max-width: 768px) {
+        .user-card .icon-bottom md-icon {
+          font-size: 20px; } }
+  .user-card .detail-bottom {
+    position: absolute;
+    bottom: 0;
+    width: 50%;
+    left: 0; }
+  .user-card .slim-loading-bar {
+    background: white; }
 
 .header-under {
   background: none;
@@ -4949,7 +4996,8 @@ table.two-tr-table, .table-with-header {
   width: 100%;
   margin-top: 5px; }
 .ledger-container .ledger-form-container {
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19); }
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+  background: white; }
 .ledger-container .ledger-list {
   cursor: pointer; }
   .ledger-container .ledger-list md-list-item {
@@ -4961,6 +5009,11 @@ table.two-tr-table, .table-with-header {
 .vouchers-container {
   margin: 5px; }
   .vouchers-container .voucher-form-container {
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19); }
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+    background: white; }
+    .vouchers-container .voucher-form-container .voucher-form md-select {
+      width: 25%; }
+    .vouchers-container .voucher-form-container .voucher-form .mat-input-container {
+      width: 25%; }
 
 /*# sourceMappingURL=styles.css.map */

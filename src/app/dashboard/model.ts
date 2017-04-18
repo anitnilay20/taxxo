@@ -29,6 +29,7 @@ export class User {
   date_joined: Date;
   number: number;
   birth_date: Date;
+  image: string;
 }
 
 export class Profile {

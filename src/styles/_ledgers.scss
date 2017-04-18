@@ -1,27 +1,45 @@
 .ledger-container {
-    @include form-input();
-    md-select {
-        width: 100%;
-        margin-top: 5px;
+  @include form-input();
+
+  md-select {
+    width: 100%;
+    margin-top: 5px;
+  }
+
+  .ledger-form-container {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+    background: white;
+  }
+
+  .ledger-list {
+    cursor: pointer;
+
+    md-list-item {
+      padding: 5px;
+
+      &:hover {
+        background: $highlight;
+        color: $color2;
+      }
     }
-    .ledger-form-container {
-        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
-    }
-    .ledger-list {
-        cursor: pointer;
-        md-list-item {
-            padding: 5px;
-            &:hover {
-                background: $highlight;
-                color: $color2;
-            }
-        }
-    }
+  }
 }
 
 .vouchers-container {
-    margin: 5px;
-    .voucher-form-container {
-        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+  margin: 5px;
+
+  .voucher-form-container {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+    background: white;
+
+    .voucher-form {
+      md-select {
+        width: 25%;
+      }
+
+      .mat-input-container {
+        width: 25%;
+      }
     }
+  }
 }

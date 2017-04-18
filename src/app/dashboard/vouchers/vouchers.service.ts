@@ -7,15 +7,15 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class VoucherService {
-  private voucherUrl = 'http://52.37.146.59/'
+  private voucherUrl = 'http://52.37.146.59/journal/'
   private current_company = localStorage.getItem('company')
   constructor(private http: Http) { }
 
-  addVoucher(data: any, type: string): Observable<Voucher> {
+  addVoucher(data: any): Observable<Voucher> {
     console.log(data);
     let headers = new Headers({ 'Content-Type': 'application/json', 'company': parseInt(this.current_company) });
     let option = new RequestOptions({ headers: headers });
-    return this.http.post(this.voucherUrl + type + '/', data, option)
+    return this.http.post(this.voucherUrl, data, option)
       .map((res: Response) => res.json())
       .catch(this.handleError);
   }

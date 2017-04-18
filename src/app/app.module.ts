@@ -41,7 +41,6 @@ import 'hammerjs'
   bootstrap: [AppComponent],
   providers: [
     CompanyService,
-    { provide: RouteReuseStrategy, useClass: CustomReuseStrategy }
   ]
 })
 export class AppModule { }

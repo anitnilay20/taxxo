@@ -57,7 +57,7 @@ export class CompanyService {
   }
 
   getBalanceSheet(id: number): Observable<BalanceSheet> {
-    let url = 'http://52.37.146.59/trialbalance/balancesheet';
+    let url = 'http://52.37.146.59/trialbalance/balancesheet/';
     let headers = new Headers({ 'COMPANY': id })
     let option = new RequestOptions({ headers: headers });
     return this.http.get(url, option)

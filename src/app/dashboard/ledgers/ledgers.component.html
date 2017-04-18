@@ -14,6 +14,9 @@
             <md-option *ngFor="let account of accounts" [value]="account">{{ account }}</md-option>
           </md-select>
           <md-slide-toggle (change)="change_inventory()">Affects Inventory?</md-slide-toggle>
+          <md-card *ngIf="error">
+            <h4 style="color:red;">Ledger Already Exist! Change name</h4>
+          </md-card>
           <button (click)="addLedger()" md-button style="z-index: 1000;" type="submit" class="form-button">Submit</button>
         </form>
       </md-tab>

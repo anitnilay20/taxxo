@@ -10,12 +10,15 @@ import { LedgersComponent } from './ledgers/ledgers.component';
 import { VouchersComponent } from './vouchers/vouchers.component';
 import { DashboardhomeComponent } from './dashboardhome/dashboardhome.component';
 import { UserService } from '../signup/signup.service';
-import { Userdetailcomponent } from './user-detail/user-detail.component'; 
+import { Userdetailcomponent } from './user-detail/user-detail.component';
 import { Reportcomponent } from './report/report.component'
+import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
+
 
 @NgModule({
   imports: [
     BrowserModule,
+    SlimLoadingBarModule.forRoot(),
     MaterialModule,
     RouterModule,
     CalendarModule,
