@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { Company, TrialBalance, BalanceSheet, ProfitLoss } from '../model';
 import { CompanyService } from '../company/company.service';
 import { Title } from '@angular/platform-browser';
@@ -10,20 +10,11 @@ import { Title } from '@angular/platform-browser';
 	providers: [CompanyService]
 })
 
-export class Reportcomponent implements OnInit {
+export class Reportcomponent implements OnChanges {
 	@Input() company: Company;
 	trialBalances: TrialBalance[];
 	profitLoss: ProfitLoss[];
-	expense: any[];
-	income: any[];
-	totalExpense: number;
-	totalIncome: number;
 	currentDate: Date;
-	balanceSheets: BalanceSheet;
-	current_assets: any[];
-	loans_liability: any[];
-	curent_liabilities: any[];
-	capital_account: any[];
 
 	getTrialBalance(company: Company) {
 		this.companyService.getTrialBalance(company.id)
@@ -43,10 +34,8 @@ export class Reportcomponent implements OnInit {
 		this.getTrialBalance(this.company);
 	}
 
-	ngOnChanges() {
+	ngOnChanges(changes: SimpleChanges) {
 		this.getReport();
 	}
-	ngOnInit() {
 
-	}
 }

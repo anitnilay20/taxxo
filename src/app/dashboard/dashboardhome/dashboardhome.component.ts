@@ -13,7 +13,7 @@ import { MdSnackBar } from '@angular/material';
 
 export class DashboardhomeComponent implements OnInit {
 	companies: Company[];
-	selectedCompany: any;
+	selectedCompany: Company;
 	trialBalances: TrialBalance[];
 	profitLoss: ProfitLoss[];
 	expense: any[];
@@ -44,7 +44,7 @@ export class DashboardhomeComponent implements OnInit {
 			duration: 5000,
 		});
 	}
-   constructor(private titleService: Title, private companyService: CompanyService, public snackbar: MdSnackBar) {
+	constructor(private titleService: Title, private companyService: CompanyService, public snackbar: MdSnackBar) {
 	}
 
 	ngOnInit() {
