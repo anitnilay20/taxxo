@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../model';
 import { UserService } from '../../signup/signup.service';
-import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
 
 @Component({
 	selector: 'user-detail',
@@ -23,7 +22,7 @@ export class Userdetailcomponent implements OnInit {
 		this.progress = String((count / 11) * 100);
 	}
 
-	constructor(public userService: UserService, private slimLoadingBarService: SlimLoadingBarService) {
+	constructor(public userService: UserService) {
 	}
 
 	ngOnInit() {

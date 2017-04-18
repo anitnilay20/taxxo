@@ -1,7 +1,9 @@
 <div class="container-fluid">
   <div class="row vouchers-container">
     <div class="col-sm-8 voucher-form-container" *ngIf="ledgers">
+
       <md-tab-group>
+
         <md-tab label="Journal">
           <br>
           <md-input-container>
@@ -34,19 +36,47 @@
               <input mdInput type="text" [(ngModel)]="narration" placeholder="Narration">
             </md-input-container>
           </div>
+          <div class="col-sm-12 white-bg no-padding">
+            <md-card>
+              <div class="row text-center">
+                <div class="col-sm-4">
+                  <h4>Debit</h4>
+                  <md-input-container>
+                    <input readonly="readonly" mdInput type="number" [(ngModel)]="totalDebit" />
+                  </md-input-container>
+                </div>
+                <div class="col-sm-4">
+                  <h4>Credit</h4>
+                  <md-input-container>
+                    <input readonly="readonly" mdInput type="number" [(ngModel)]="totalCredit" />
+                  </md-input-container>
+                </div>
+                <div class="col-sm-4">
+                  <h4>Submit</h4>
+                  <button (click)="addJournal()" class="form-button" [disabled]="checkTotal()" md-button><md-icon>check</md-icon></button>
+                </div>
+                <span style="color:red">{{totalError}}</span>
+              </div>
+            </md-card>
+          </div>
         </md-tab>
+
         <md-tab label="Sales">
           <br>
         </md-tab>
+
         <md-tab label="Purchase">
           <br>
         </md-tab>
+
         <md-tab label="Income">
           <br>
         </md-tab>
+
         <md-tab label="Expense">
           <br>
         </md-tab>
+
       </md-tab-group>
     </div>
 
@@ -57,30 +87,7 @@
       </md-card>
     </div>
 
-    <div class="col-sm-8 white-bg no-padding">
-      <md-card>
-        <div class="row text-center">
 
-          <div class="col-sm-4">
-            <h4>Debit</h4>
-            <md-input-container>
-              <input readonly="readonly" mdInput type="number" [(ngModel)]="totalDebit" />
-            </md-input-container>
-          </div>
-          <div class="col-sm-4">
-            <h4>Credit</h4>
-            <md-input-container>
-              <input readonly="readonly" mdInput type="number" [(ngModel)]="totalCredit" />
-            </md-input-container>
-          </div>
-          <div class="col-sm-4">
-            <h4>Submit</h4>
-            <button (click)="addJournal()" class="form-button" [disabled]="checkTotal()" md-button><md-icon>check</md-icon></button>
-          </div>
-          <span style="color:red">{{totalError}}</span>
-        </div>
-      </md-card>
-    </div>
 
   </div>
 </div>
