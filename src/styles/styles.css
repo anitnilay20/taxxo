@@ -4878,6 +4878,52 @@ table.two-tr-table, .table-with-header {
   .user-card .rr-right > div {
     margin-right: 50px;
     margin-left: 25px; }
+  .user-card md-card {
+    overflow: hidden; }
+  .user-card .card-image {
+    position: relative;
+    height: 150px; }
+  .user-card img {
+    width: 100%;
+    display: block;
+    position: relative; }
+  .user-card .card-content {
+    padding: 20px;
+    border-radius: 0 0 2px 2px; }
+  .user-card .card-profile-image {
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    top: 110px;
+    z-index: 1;
+    cursor: pointer;
+    margin-bottom: 10px; }
+  .user-card .img-circle {
+    border-radius: 100%; }
+  .user-card .card-reveal {
+    padding: 20px;
+    position: absolute;
+    background-color: #fff;
+    width: 100%;
+    overflow-y: auto;
+    top: 100%;
+    height: 100%;
+    z-index: 1;
+    display: none; }
+  .user-card .btn-move-up {
+    position: relative;
+    top: -45px;
+    float: right; }
+  .user-card .card-title {
+    top: 50px;
+    line-height: 48px;
+    color: black;
+    font-size: 30px;
+    font-style: bold; }
+  .user-card .details {
+    margin-left: 2px;
+    font-style: bold;
+    font-size: 20px; }
   .user-card .icon-bottom {
     position: absolute;
     bottom: 0;
