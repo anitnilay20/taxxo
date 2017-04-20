@@ -30,7 +30,7 @@ export class DashboardhomeComponent implements OnInit {
 	getCompany() {
 		this.companyService.getCompany()
 			.subscribe(
-			companies => { this.companies = companies; console.log(this.companies); },
+			companies => { this.companies = companies; this.selectedCompany = this.companies[0] },
 			error => { console.log(error); }
 			);
 	}

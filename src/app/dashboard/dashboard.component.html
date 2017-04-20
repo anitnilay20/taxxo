@@ -1,4 +1,4 @@
-<header class="dashboard-header">
+<header class="dashboard-header animated slideInDown">
   <nav>
     <div class="container-fluid">
       <h3 (click)="sidenav.open()"><i class="material-icons side-bar-ativate">view_headline</i></h3>
@@ -28,17 +28,17 @@
               <i class="material-icons left-list-obj">dashboard</i><i class="center-list-obj">DashBoard Home</i><i class="material-icons right-list-obj">keyboard_arrow_right</i>
             </md-list-item>
           </a>
-          <a class="hvr-underline-reveal" [routerLink]="['company']">
+          <a class="hvr-underline-reveal" [routerLink]="['/dashboard/company']">
             <md-list-item>
               <i class="material-icons left-list-obj">work</i><i class="center-list-obj">Company</i><i class="material-icons right-list-obj">keyboard_arrow_right</i>
             </md-list-item>
           </a>
-          <a class="hvr-underline-reveal" [routerLink]="['ledgers']">
+          <a class="hvr-underline-reveal" [routerLink]="['/dashboard/ledgers']">
             <md-list-item>
               <i class="material-icons left-list-obj">content_copy</i><i class="center-list-obj">Ledgers</i><i class="material-icons right-list-obj">keyboard_arrow_right</i>
             </md-list-item>
           </a>
-          <a class="hvr-underline-reveal" [routerLink]="['vouchers']">
+          <a class="hvr-underline-reveal" [routerLink]="['/dashboard/vouchers']">
             <md-list-item>
               <i class="material-icons left-list-obj">border_color</i><i class="center-list-obj">Vouchers</i><i class="material-icons right-list-obj">keyboard_arrow_right</i>
             </md-list-item>

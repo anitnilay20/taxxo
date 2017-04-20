@@ -15,6 +15,8 @@ import { CompanyService } from './dashboard/company/company.service'
 import { SigninComponent } from './signin/signin.component';
 import { RouteReuseStrategy } from "@angular/router";
 import { CustomReuseStrategy } from './custom-reuse-strategy';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+
 import 'hammerjs'
 
 @NgModule({
@@ -31,6 +33,7 @@ import 'hammerjs'
     RouterModule,
     HttpModule,
     JsonpModule,
+    BrowserAnimationsModule
   ],
   declarations: [
     AppComponent,
