@@ -1,4 +1,4 @@
-<div *ngIf="user" class="no-padding user-card margin-t-10">
+<!--<div *ngIf="user" class="no-padding user-card margin-t-10">
   <div class="rr rr-left">
     <img *ngIf="!user.image" src="http://cdn.playbuzz.com/cdn/05612ae3-0911-4e51-8ff5-0c5b1b580cbf/5c212545-2724-4231-9805-82e931028689.jpg"
       width="100%" height="100%">
@@ -18,4 +18,57 @@
       </a>
     </div>
   </div>
+</div>-->
+
+<div class="no-padding user-card margin-t-10">
+  <md-card class="no-padding">
+    <div class="card-image">
+      <img class="activator" src="https://cmkt-image-prd.global.ssl.fastly.net/0.1.0/ps/1135824/580/386/m1/fpnw/wm0/cover-.jpg?1459430243&s=37e24e87e07fccff592af0d4d2ccf2f1"
+        width="100%" height="100%" alt="background">
+    </div>
+    <div class="card-content">
+      <img class="img-responsive img-circle card-profile-image" src="http://cdn.playbuzz.com/cdn/05612ae3-0911-4e51-8ff5-0c5b1b580cbf/5c212545-2724-4231-9805-82e931028689.jpg">
+      <a class="btn-move-up">
+        <i class="material-icons">account_circle</i>
+      </a>
+      <span class="card-title">XYZ</span>
+      <p>
+        <md-icon>perm_identity</md-icon>
+        <span class="details"> Project Manager</span>
+      </p>
+      <p>
+        <md-icon>perm_phone_msg</md-icon>
+        <span class="details">12345678</span>
+      </p>
+      <p>
+        <md-icon>email</md-icon>
+        <span class="details">xyz@gmail.com</span>
+      </p>
+      <!--<img *ngIf="!user.image" src="http://cdn.playbuzz.com/cdn/05612ae3-0911-4e51-8ff5-0c5b1b580cbf/5c212545-2724-4231-9805-82e931028689.jpg"
+        width="100%" height="100%">
+      <img *ngIf="user.image" src="http://52.37.146.59{{user.image}}" width="100%" height="100%">-->
+    </div>
+    <div class="card-reveal" style="display: none; transform: translateY(0px)">
+      <span class="card-title">
+        XYZ
+        <md-icon>close</md-icon>
+      </span>
+      <p>
+        <md-icon>perm_identity</md-icon>
+        <span class="details"> Project Manager</span>
+      </p>
+      <p>
+        <md-icon>perm_phone_msg</md-icon>
+        <span class="details">12345678</span>
+      </p>
+      <p>
+        <md-icon>email</md-icon>
+        <span class="details">xyz@gmail.com</span>
+      </p>
+      <p>
+        <md-icon>cake</md-icon>
+        <span class="details">ddmm yy</span>
+      </p>
+    </div>
+  </md-card>
 </div>
