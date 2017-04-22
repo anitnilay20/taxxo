@@ -216,5 +216,16 @@ div[class^="col-sm-"] {
   background: $base-head;
   color: white;
 }
+
+.company-name {
+  width: 100%;
+  padding: 10px;
+  background-color: $base-head;
+  color: #fff;
+}
+
+.mat-ink-bar {
+  background-color: $highlight;
+}
 @import '_signup.scss';
 @import '_dashboard.scss';

@@ -1,5 +1,5 @@
 <div class="row" class="ledger-container animated slideInDown" *ngIf="ledgers">
-  <div class="col-sm-8 ledger-form-container">
+  <div class="col-sm-8 ledger-form-container no-padding">
     <md-tab-group>
       <md-tab label="Available Ledgers" *ngIf="ledgers.length > 0">
         <md-list class="ledger-list">
@@ -10,7 +10,7 @@
         <form [formGroup]="addLedgerForm">
           <md-input-container> <input mdInput type="text" formControlName="name" placeholder="Name Of Ledgers" required /></md-input-container>
           <md-input-container> <input mdInput type="number" formControlName="opening_balance" placeholder="Openbing Balance" required /></md-input-container>
-          <md-select (change)="select_accounts($event)" placeholder="Slect Group">
+          <md-select (change)="select_accounts($event)" placeholder="Select Group">
             <md-option *ngFor="let account of accounts" [value]="account">{{ account }}</md-option>
           </md-select>
           <md-slide-toggle (change)="change_inventory()">Affects Inventory?</md-slide-toggle>

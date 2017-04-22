@@ -5,6 +5,7 @@ $rr-height: 300px;
 $rr-slant: 100px;
 $rr-gutter: 1%;
 $rr-width: 50%;
+
 .dashboard-header {
   font-size: 1em;
   position: fixed;
@@ -15,13 +16,16 @@ $rr-width: 50%;
     height: auto;
   }
   transition: .5s;
+
   h3 {
     margin: 0;
     display: inline-block;
+
     img {
       width: 110px;
     }
   }
+
   li {
     cursor: pointer;
   }
@@ -37,6 +41,7 @@ $rr-width: 50%;
   padding: 0;
   width: 100%;
   height: 100vh;
+
   md-sidenav {
     visibility: visible;
     width: 300px;
@@ -45,6 +50,7 @@ $rr-width: 50%;
     height: 100vh;
     z-index: 2;
   }
+
   .sidenav-internal {
     padding: 0;
     margin-top: 0;
@@ -57,6 +63,7 @@ $rr-width: 50%;
     }
     overflow: hidden;
   }
+
   .icon-list {
     position: fixed;
     background: $color2;
@@ -70,14 +77,17 @@ $rr-width: 50%;
     @media screen and (max-width: 768px) {
       display: none;
     }
+
     &:hover {
       width: 500px;
     }
+
     i {
       color: white;
     }
     transition: 1s;
   }
+
   a {
     text-decoration: none;
     color: inherit;
@@ -88,10 +98,13 @@ $rr-width: 50%;
 .dashboard-list {
   md-list {
     width: 100%;
+
     a {
       width: 100%;
+
       md-list-item {
         color: black;
+
         .mat-list-item-content {
           color: black;
         }
@@ -103,6 +116,7 @@ $rr-width: 50%;
 .main-container {
   width: 100%;
   padding: 5px 5px 5px 0;
+
   .container-right {
     margin-top: 30px;
     margin-left: 80px;
@@ -152,7 +166,6 @@ $rr-width: 50%;
   visibility: hidden;
   font-size: 1em;
 }
-
 @media screen and (max-width: 768px) {
   .side-bar-ativate {
     visibility: visible;
@@ -161,14 +174,17 @@ $rr-width: 50%;
 
 table.two-tr-table {
   width: 100%;
+
   tr {
     th {
       color: $highlight;
       padding: 10px;
     }
+
     td {
       padding: 10px;
     }
+
     &:nth-child(odd) {
       border-bottom: 2px solid $highlight;
     }
@@ -181,6 +197,7 @@ table.two-tr-table {
   @media screen and (max-width: 768px) {
     width: 97%;
   }
+
   h4,
   h5 {
     background: $color1;
@@ -190,12 +207,14 @@ table.two-tr-table {
     margin: 0;
     border-bottom: 1px $color1 solid;
   }
+
   tr {
     &:nth-child(odd) {
       border-bottom: none;
       background: #eee;
     }
   }
+
   &:nth-child(odd) {
     border-right: 1px $color1 solid;
   }
@@ -204,70 +223,31 @@ table.two-tr-table {
 .user-card {
   background: $child-head;
   height: $rr-height;
+
   h2 {
     text-transform: uppercase;
   }
-  .rr>div {
-    text-align: center;
-  } // Construct the rectangles
-  .rr {
-    position: relative;
-    height: $rr-height;
-    background: $child-head;
-    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
-    &.rr-left {
-      z-index: 1;
-      float: left;
-      width: $rr-width + 5%; // + 5% adjustment for slant offset
-    }
-    &.rr-right {
-      z-index: 2;
-      float: right;
-      width: $rr-width - $rr-gutter - 5%; // - 5% adjustment for slant offset
-    }
-  } // Add slanted edges
-  .rr:after,
-  .rr:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    width: 0;
-    height: 0;
-  }
-  .rr-left:after {
-    right: 0;
-    border-left: $rr-slant solid transparent;
-    border-bottom: $rr-height solid $pg-bg;
-  }
-  .rr-right:before {
-    left: -$rr-slant;
-    border-right: $rr-slant solid $child-head;
-    border-top: $rr-height solid rgba(0, 0, 0, 0); // overlaps .rr-left
-  } // Add padding around inner content
-  .rr-left>div {
-    margin-right: $rr-slant;
-    margin-left: $rr-slant/2;
-  }
-  .rr-right>div {
-    margin-right: $rr-slant/2;
-    margin-left: $rr-slant/4;
-  }
+
   md-card {
     overflow: hidden;
   }
+
   .card-image {
     position: relative;
     height: 150px;
   }
+
   img {
     width: 100%;
     display: block;
     position: relative;
   }
+
   .card-content {
     padding: 20px;
     border-radius: 0 0 2px 2px;
   }
+
   .card-profile-image {
     width: 70px;
     height: 70px;
@@ -277,9 +257,11 @@ table.two-tr-table {
     cursor: pointer;
     margin-bottom: 10px;
   }
+
   .img-circle {
     border-radius: 100%;
   }
+
   .card-reveal {
     padding: 20px;
     position: absolute;
@@ -291,11 +273,13 @@ table.two-tr-table {
     z-index: 1;
     display: none;
   }
+
   .btn-move-up {
     position: relative;
     top: -45px;
     float: right;
   }
+
   .card-title {
     top: 50px;
     line-height: 48px;
@@ -303,11 +287,13 @@ table.two-tr-table {
     font-size: 30px;
     font-style: bold;
   }
+
   .details {
     margin-left: 2px;
     font-style: bold;
     font-size: 20px;
   }
+
   .icon-bottom {
     position: absolute;
     bottom: 0;
@@ -322,6 +308,7 @@ table.two-tr-table {
       width: 40px;
       height: 40px;
     }
+
     md-icon {
       font-size: 35px;
       margin: auto;
@@ -330,6 +317,7 @@ table.two-tr-table {
       }
     }
   }
+
   .detail-bottom {
     position: absolute;
     bottom: 0;
@@ -337,6 +325,5 @@ table.two-tr-table {
     left: 0;
   }
 }
-
 @import '_company.scss';
 @import '_ledgers.scss';
