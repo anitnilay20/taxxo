@@ -1,0 +1,54 @@
+<br>
+<md-input-container>
+  <input type="date" mdInput placeholder="Date" [(ngModel)]="voucherDate">
+</md-input-container>
+<form (submit)="addRows()">
+  <div class="voucher-form" *ngFor="let row of rows; let i = index">
+    <md-select placeholder="Type" (change)="selectType($event,i)">
+      <md-option [value]="'credit'">Credit</md-option>
+      <md-option [value]="'debit'">Debit</md-option>
+    </md-select>
+    <md-input-container>
+      <input required #firstAcInput mdInput placeholder="Account" [mdAutocomplete]="auto" (keyup)="filterLedger(firstAcInput.value)"
+        (blur)="selectLedger(firstAcInput.value, i)">
+    </md-input-container>
+    <md-autocomplete #auto="mdAutocomplete">
+      <md-option *ngFor="let ledger of filteredLedger" [value]="ledger.name" (click)="selectLedger(firstAcInput.value, i)">
+        <span>{{ ledger.name }}</span>
+      </md-option>
+    </md-autocomplete>
+    <md-input-container>
+      <input #amountInput mdInput type="number" placeholder="Amount" required (change)="selectAmount(amountInput.value, i)" />
+    </md-input-container>
+    <button md-button type="submit"><md-icon>add</md-icon></button>
+    <hr>
+  </div>
+</form>
+<div class="col-sm-12">
+  <md-input-container style="width:100%">
+    <input mdInput type="text" [(ngModel)]="narration" placeholder="Narration">
+  </md-input-container>
+</div>
+<div class="col-sm-12 white-bg no-padding">
+  <md-card>
+    <div class="row text-center">
+      <div class="col-sm-4">
+        <h4>Debit</h4>
+        <md-input-container>
+          <input readonly="readonly" mdInput type="number" [(ngModel)]="totalDebit" />
+        </md-input-container>
+      </div>
+      <div class="col-sm-4">
+        <h4>Credit</h4>
+        <md-input-container>
+          <input readonly="readonly" mdInput type="number" [(ngModel)]="totalCredit" />
+        </md-input-container>
+      </div>
+      <div class="col-sm-4">
+        <h4>Submit</h4>
+        <button (click)="addJournal()" class="form-button" [disabled]="checkTotal()" md-button><md-icon>check</md-icon></button>
+      </div>
+      <span style="color:red">{{totalError}}</span>
+    </div>
+  </md-card>
+</div>

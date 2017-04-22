@@ -11,7 +11,8 @@ import { VouchersComponent } from './vouchers/vouchers.component';
 import { DashboardhomeComponent } from './dashboardhome/dashboardhome.component';
 import { UserService } from '../signup/signup.service';
 import { Userdetailcomponent } from './user-detail/user-detail.component';
-import { Reportcomponent } from './report/report.component'
+import { Reportcomponent } from './report/report.component';
+import { JournalComponent } from "./vouchers/journal/journal.component";
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { Reportcomponent } from './report/report.component'
     VouchersComponent,
     DashboardhomeComponent,
     Userdetailcomponent,
-    Reportcomponent
+    Reportcomponent,
+    JournalComponent
   ],
   providers: [
     Title

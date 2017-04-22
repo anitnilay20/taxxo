@@ -1,7 +1,7 @@
-<div class="row" class="ledger-container animated slideInDown">
+<div class="row" class="ledger-container animated slideInDown" *ngIf="ledgers">
   <div class="col-sm-8 ledger-form-container">
     <md-tab-group>
-      <md-tab label="Available Ledgers">
+      <md-tab label="Available Ledgers" *ngIf="ledgers.length > 0">
         <md-list class="ledger-list">
           <md-list-item (click)="selectLedger(ledger)" *ngFor="let ledger of ledgers">{{ledger.name}}</md-list-item>
         </md-list>
