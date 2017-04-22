@@ -1,12 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Ledgers, Voucher, User } from "../../model";
-import { MdSnackBar } from "@angular/material/material";
+import { MdSnackBar } from "@angular/material";
 import { VoucherService } from "../vouchers.service";
 
 @Component({
 	selector: 'purchase',
-	moduleId: module.id,
-	templateUrl: './purchase/purchase.component.html',
+	templateUrl: 'purchase.component.html',
 })
 
 export class PurchaseComponent {

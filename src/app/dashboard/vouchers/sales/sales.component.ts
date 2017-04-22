@@ -1,12 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Ledgers, Voucher, User } from "../../model";
-import { MdSnackBar } from "@angular/material/material";
+import { MdSnackBar } from "@angular/material";
 import { VoucherService } from "../vouchers.service";
 
 @Component({
 	selector: 'sales',
-	moduleId: module.id,
-	templateUrl: './sales/sales.component.html',
+	templateUrl: 'sales.component.html',
 })
 
 export class SalesComponent {

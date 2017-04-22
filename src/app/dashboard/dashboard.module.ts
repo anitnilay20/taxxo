@@ -13,6 +13,8 @@ import { UserService } from '../signup/signup.service';
 import { Userdetailcomponent } from './user-detail/user-detail.component';
 import { Reportcomponent } from './report/report.component';
 import { JournalComponent } from "./vouchers/journal/journal.component";
+import { SalesComponent } from "./vouchers/sales/sales.component";
+import { PurchaseComponent } from "./vouchers/purchase/purchase.component";
 
 
 @NgModule({
@@ -32,7 +34,9 @@ import { JournalComponent } from "./vouchers/journal/journal.component";
     DashboardhomeComponent,
     Userdetailcomponent,
     Reportcomponent,
-    JournalComponent
+    JournalComponent,
+    SalesComponent,
+    PurchaseComponent
   ],
   providers: [
     Title
