@@ -32,8 +32,8 @@ $candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-
   .form-button {
     background: $highlight;
     border: none;
-    margin: 5px;
-    padding: 10px;
+    margin-top: 5px;
+    padding-top: 10px;
     width: 100%;
 
     &:hover {
@@ -226,6 +226,10 @@ div[class^="col-sm-"] {
 
 .mat-ink-bar {
   background-color: $highlight;
+}
+
+padding-5 {
+  padding: 5px;
 }
 @import '_signup.scss';
 @import '_dashboard.scss';

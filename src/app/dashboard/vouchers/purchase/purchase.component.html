@@ -33,19 +33,19 @@
   <md-card>
     <div class="row text-center">
       <div class="col-sm-4">
-        <h4>Debit</h4>
+        <h3 class="md-title">Debit</h3>
         <md-input-container>
           <input readonly="readonly" mdInput type="number" [(ngModel)]="totalDebit" />
         </md-input-container>
       </div>
       <div class="col-sm-4">
-        <h4>Credit</h4>
+        <h3 class="md-title">Credit</h3>
         <md-input-container>
           <input readonly="readonly" mdInput type="number" [(ngModel)]="totalCredit" />
         </md-input-container>
       </div>
       <div class="col-sm-4">
-        <h4>Submit</h4>
+        <h3 class="md-title">Submit</h3>
         <button (click)="addJournal()" class="form-button" [disabled]="checkTotal()" md-button><md-icon>check</md-icon></button>
       </div>
       <span style="color:red">{{totalError}}</span>

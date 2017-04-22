@@ -3,15 +3,15 @@
     <div class="col-sm-12" style="margin-bottom: 10px;">
       <md-card class="no-padding">
         <md-tab-group>
-          <md-tab label="All Company">
-            <h4>Select a company</h4>
+          <md-tab class="padding-5" label="All Company">
+            <h3 class="md-title">Select a company</h3>
             <md-list class="company-list">
               <md-list-item class="hvr-sweep-to-right" (click)="selectCompany(company)" *ngFor="let company of companies">
                 {{company.name}}
               </md-list-item>
             </md-list>
           </md-tab>
-          <md-tab label="Add Company">
+          <md-tab class="padding-5" label="Add Company">
             <header class="header-under">
               <h3>Enter Detail</h3>
             </header>
@@ -33,8 +33,8 @@
               <button (click)="addCompany()" md-button style="z-index: 1000;" type="submit" class="form-button">Submit</button>
             </form>
           </md-tab>
-          <md-tab *ngIf="selectedCompany" label="Edit Company">
-            <h4>Edit {{selectedCompany.name}}</h4>
+          <md-tab class="padding-5" *ngIf="selectedCompany" label="Edit Company">
+            <h3 class="md-title">Edit {{selectedCompany.name}}</h3>
             <hr>
             <form class="company-form" [formGroup]="addCompanyForm">
               <md-input-container> <input value="{{selectedCompany.name}}" mdInput type="text" formControlName="name" placeholder="Name Of Company"
@@ -61,7 +61,7 @@
   </div>
   <div class="col-sm-4 recent_activity animated fadeIn" *ngIf="selectedCompany">
     <md-card>
-      <h4>Recent Activities for {{selectedCompany.name}}</h4>
+      <h3 class="md-title">Recent Activities for {{selectedCompany.name}}</h3>
       <hr>
       <ul>
         <li *ngFor="let activity of activities">

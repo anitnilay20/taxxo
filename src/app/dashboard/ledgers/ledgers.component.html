@@ -1,21 +1,21 @@
 <div class="row" class="ledger-container animated slideInDown" *ngIf="ledgers">
   <div class="col-sm-8 ledger-form-container no-padding">
     <md-tab-group>
-      <md-tab label="Available Ledgers" *ngIf="ledgers.length > 0">
+      <md-tab class="padding-5" label="Available Ledgers" *ngIf="ledgers.length > 0">
         <md-list class="ledger-list">
           <md-list-item (click)="selectLedger(ledger)" *ngFor="let ledger of ledgers">{{ledger.name}}</md-list-item>
         </md-list>
       </md-tab>
-      <md-tab label="Add Ledgers">
+      <md-tab class="padding-5" label="Add Ledgers">
         <form [formGroup]="addLedgerForm">
           <md-input-container> <input mdInput type="text" formControlName="name" placeholder="Name Of Ledgers" required /></md-input-container>
           <md-input-container> <input mdInput type="number" formControlName="opening_balance" placeholder="Openbing Balance" required /></md-input-container>
-          <md-select (change)="select_accounts($event)" placeholder="Select Group">
+          <md-select \(change)="select_accounts($event)" placeholder="Select Group">
             <md-option *ngFor="let account of accounts" [value]="account">{{ account }}</md-option>
           </md-select>
           <md-slide-toggle (change)="change_inventory()">Affects Inventory?</md-slide-toggle>
           <md-card *ngIf="error">
-            <h4 style="color:red;">Ledger Already Exist! Change name</h4>
+            <h3 class="md-title" style="color:red;">Ledger Already Exist! Change name</h3>
           </md-card>
           <button (click)="addLedger()" md-button style="z-index: 1000;" type="submit" class="form-button">Submit</button>
         </form>
@@ -30,7 +30,7 @@
   </div>
   <div *ngIf="selectedLedger" class="col-sm-8 animated fadeIn no-padding">
     <md-card>
-      <h4>{{selectedLedger.name}}</h4>
+      <h3 class="md-title">{{selectedLedger.name}}</h3>
       <p>{{selectedLedger.opening_balance}}</p>
       <p>{{selectedLedger.groups}}</p>
     </md-card>
