@@ -1,10 +1,10 @@
 <md-card *ngIf="company" class="no-padding">
   <div class="company-name">
-    <h4>{{company.name|uppercase}}'s REPORTS as of {{currentDate | date}}</h4>
+    <h3 class="md-title">{{company.name|uppercase}}'s REPORTS as of {{currentDate | date}}</h3>
   </div>
   <md-tab-group>
     <md-tab label="Trial Balance ">
-      <h4>Trial Balance</h4>
+      <h3 class="md-title">Trial Balance</h3>
       <hr>
       <table class="col-sm-12 two-tr-table ">
         <tr>

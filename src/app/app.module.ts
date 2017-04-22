@@ -16,6 +16,7 @@ import { SigninComponent } from './signin/signin.component';
 import { RouteReuseStrategy } from "@angular/router";
 import { CustomReuseStrategy } from './custom-reuse-strategy';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { CovalentCoreModule } from '@covalent/core';
 
 import 'hammerjs'
 
@@ -33,7 +34,8 @@ import 'hammerjs'
     RouterModule,
     HttpModule,
     JsonpModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    CovalentCoreModule
   ],
   declarations: [
     AppComponent,
