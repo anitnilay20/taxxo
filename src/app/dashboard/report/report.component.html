@@ -1,5 +1,7 @@
-<md-card *ngIf="company ">
-  <h4>{{company.name|uppercase}}'s REPORTS as of {{currentDate | date}}</h4>
+<md-card *ngIf="company" class="no-padding">
+  <div class="company-name">
+    <h4>{{company.name|uppercase}}'s REPORTS as of {{currentDate | date}}</h4>
+  </div>
   <md-tab-group>
     <md-tab label="Trial Balance ">
       <h4>Trial Balance</h4>
