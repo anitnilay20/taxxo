@@ -15,6 +15,7 @@ import { Reportcomponent } from './report/report.component';
 import { JournalComponent } from "./vouchers/journal/journal.component";
 import { SalesComponent } from "./vouchers/sales/sales.component";
 import { PurchaseComponent } from "./vouchers/purchase/purchase.component";
+import { CovalentJsonFormatterModule, CovalentExpansionPanelModule } from '@covalent/core';
 
 
 @NgModule({
@@ -25,6 +26,8 @@ import { PurchaseComponent } from "./vouchers/purchase/purchase.component";
     CalendarModule,
     ReactiveFormsModule,
     FormsModule,
+    CovalentJsonFormatterModule,
+    CovalentExpansionPanelModule,
   ],
   declarations: [
     DashboardComponent,

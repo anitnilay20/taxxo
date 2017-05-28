@@ -1,25 +1,3 @@
-<!--<div *ngIf="user" class="no-padding user-card margin-t-10">
-  <div class="rr rr-left">
-    <img *ngIf="!user.image" src="http://cdn.playbuzz.com/cdn/05612ae3-0911-4e51-8ff5-0c5b1b580cbf/5c212545-2724-4231-9805-82e931028689.jpg"
-      width="100%" height="100%">
-    <img *ngIf="user.image" src="http://52.37.146.59{{user.image}}" width="100%" height="100%">
-  </div>
-  <div class="rr rr-right">
-    <div>
-      <h2>Welcome</h2>
-      <div class="user">
-        <h3 *ngIf="user.first_name">{{user.first_name}}</h3>
-        <h3 *ngIf="!user.first_name">{{user.email}}</h3>
-      </div>
-      <div class="detail-bottom">
-      </div>
-      <a md-mini-fab class="icon-bottom">
-        <md-icon>mode_edit</md-icon>
-      </a>
-    </div>
-  </div>
-</div>-->
-
 <div class="no-padding user-card margin-t-10">
   <md-card class="no-padding">
     <div class="card-image">
@@ -44,10 +22,8 @@
         <md-icon>email</md-icon>
         <span class="details">xyz@gmail.com</span>
       </p>
-      <!--<img *ngIf="!user.image" src="http://cdn.playbuzz.com/cdn/05612ae3-0911-4e51-8ff5-0c5b1b580cbf/5c212545-2724-4231-9805-82e931028689.jpg"
-        width="100%" height="100%">
-      <img *ngIf="user.image" src="http://52.37.146.59{{user.image}}" width="100%" height="100%">-->
     </div>
+
     <div class="card-reveal" style="display: none; transform: translateY(0px)">
       <span class="card-title">
         XYZ
