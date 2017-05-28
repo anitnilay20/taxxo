@@ -3,6 +3,7 @@
   <input type="date" mdInput placeholder="Date" [(ngModel)]="voucherDate">
 </md-input-container>
 <form (submit)="addRows()">
+  <button class="pull-right" md-button type="submit"><md-icon>add</md-icon></button><br><br>
   <div class="voucher-form" *ngFor="let row of rows; let i = index">
     <md-select placeholder="Type" (change)="selectType($event,i)">
       <md-option [value]="'credit'">Credit</md-option>
@@ -20,7 +21,6 @@
     <md-input-container>
       <input #amountInput mdInput type="number" placeholder="Amount" required (change)="selectAmount(amountInput.value, i)" />
     </md-input-container>
-    <button md-button type="submit"><md-icon>add</md-icon></button>
     <hr>
   </div>
 </form>
@@ -31,6 +31,7 @@
 </div>
 <div class="col-sm-12 white-bg no-padding">
   <md-card>
+    <span style="color:red">{{totalError}}</span>
     <div class="row text-center">
       <div class="col-sm-4">
         <h3 class="md-title">Debit</h3>
@@ -48,7 +49,6 @@
         <h3 class="md-title">Submit</h3>
         <button (click)="addJournal()" class="form-button" [disabled]="checkTotal()" md-button><md-icon>check</md-icon></button>
       </div>
-      <span style="color:red">{{totalError}}</span>
     </div>
   </md-card>
 </div>
