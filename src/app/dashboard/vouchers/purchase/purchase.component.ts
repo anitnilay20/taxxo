@@ -49,7 +49,7 @@ export class PurchaseComponent {
 			dataObject['date'] = this.voucherDate;
 			dataObject['added_by'] = parseInt(localStorage.getItem("user"))
 			let data = JSON.stringify(dataObject);
-			this.voucherService.addVoucher(data)
+			this.voucherService.addJournal(data)
 				.subscribe(
 				Voucher => {
 					this.vouchers.push(Voucher);
