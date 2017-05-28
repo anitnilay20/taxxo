@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <div class="row vouchers-container">
-    <div class="col-sm-8 voucher-form-container no-padding" *ngIf="ledgers">
+    <div class="col-sm-8 voucher-form-container no-padding animated slideInDown" *ngIf="ledgers">
 
       <md-tab-group>
         <md-tab class="padding-5" label="Journal">
@@ -8,11 +8,11 @@
         </md-tab>
 
         <md-tab class="padding-5" label="Sales">
-          <br>
+          <sales [ledgers]="ledgers" [filteredLedger]="ledgers" (salesResponse)="responseHandler($event, 'Sales')"></sales>
         </md-tab>
 
         <md-tab class="padding-5" label="Purchase">
-          <br>
+          <purchase [ledgers]="ledgers" [filteredLedger]="ledgers"></purchase>
         </md-tab>
 
         <md-tab class="padding-5" label="Income">
@@ -26,14 +26,37 @@
       </md-tab-group>
     </div>
 
-    <div class="col-sm-4 no-padding-mobile">
-      <md-card>
-        <h5 *ngIf="!selectedCompany">No company selected. Please Select a company from company tab.</h5>
-        <h5 *ngIf="selectedCompany">Using {{selectedCompany}}</h5>
+    <div class="col-sm-4 no-padding-mobile animated fadeIn">
+      <md-card class="no-padding">
+        <td-expansion-panel [expand]="shouldExpand" #expansion>
+          <ng-template td-expansion-panel-header cl>
+            <header class="padding-10">
+              <h5 *ngIf="!selectedCompany">No company selected. Please Select a company from company tab.</h5>
+              <h5 *ngIf="selectedCompany">Using {{selectedCompany}}</h5>
+              <hr>
+              <h4 class="pull-left">Results</h4>
+              <md-icon class="pull-right" *ngIf="!expansion.expand">keyboard_arrow_down</md-icon>
+              <md-icon class="pull-right" *ngIf="expansion.expand">keyboard_arrow_up</md-icon>
+              <div class="clear"></div>
+            </header>
+          </ng-template>
+          <td-expansion-summary>
+          </td-expansion-summary>
+          <td-expansion-panel *ngFor="let res of response" [expand]="shouldExpand" #expansion2>
+            <ng-template td-expansion-panel-header cl>
+              <header class="sub-head padding-10">
+                {{res['name']}}
+                <md-icon class="pull-right" *ngIf="!expansion2.expand">keyboard_arrow_down</md-icon>
+                <md-icon class="pull-right" *ngIf="expansion2.expand">keyboard_arrow_up</md-icon>
+              </header>
+            </ng-template>
+            <td-expansion-summary>
+            </td-expansion-summary>
+            <pre>{{res | json}}</pre>
+          </td-expansion-panel>
+        </td-expansion-panel>
       </md-card>
     </div>
-
-
 
   </div>
 </div>

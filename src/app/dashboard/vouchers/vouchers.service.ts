@@ -7,21 +7,24 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class VoucherService {
-  private voucherUrl = 'http://52.37.146.59/journal/'
+  private Url = 'http://127.0.0.1:8000'
   private current_company = localStorage.getItem('company')
-  constructor(private http: Http) { }
+  private headers = new Headers({ 'Content-Type': 'application/json', 'company': parseInt(this.current_company) });
+  private option = new RequestOptions({ headers: this.headers });
 
-  addVoucher(data: any): Observable<Voucher> {
-    console.log(data);
-    let headers = new Headers({ 'Content-Type': 'application/json', 'company': parseInt(this.current_company) });
-    let option = new RequestOptions({ headers: headers });
-    return this.http.post(this.voucherUrl, data, option)
+  addJournal(data: any): Observable<Voucher> {
+    return this.http.post(this.Url + '/journal/', data, this.option)
+      .map((res: Response) => res.json())
+      .catch(this.handleError);
+  }
+
+  addSales(data: any): Observable<Voucher> {
+    return this.http.post(this.Url + '/sales/', data, this.option)
       .map((res: Response) => res.json())
       .catch(this.handleError);
   }
 
   private handleError(error: Response | any) {
-    // In a real world app, we might use a remote logging infrastructure
     let errMsg: string;
     if (error instanceof Response) {
       const body = error.json() || '';
@@ -33,4 +36,6 @@ export class VoucherService {
     console.error(errMsg);
     return Observable.throw(errMsg);
   }
+
+  constructor(private http: Http) { }
 }
