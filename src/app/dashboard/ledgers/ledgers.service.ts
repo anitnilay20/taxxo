@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import { API_URL } from "../../../../config";
 import { Ledgers } from '../model'
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 
 @Injectable()
 export class LedgersService {
-  private LedgersUrl = 'http://52.37.146.59/ledgers/'
+  private LedgersUrl = API_URL + '/ledgers/'
   private current_company = localStorage.getItem('company')
   constructor(private http: Http) { }
 

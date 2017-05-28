@@ -1,15 +1,36 @@
 <br>
-<md-input-container>
-  <input type="date" mdInput placeholder="Date" [(ngModel)]="voucherDate">
-</md-input-container>
+<div class="sales-input">
+  <md-select placeholder="Payment Type" (change)="selectType($event)">
+    <md-option [value]="'credit'">Credit</md-option>
+    <ng-container *ngFor="let ledger of ledgers">
+      <md-option [value]="ledger.id" *ngIf="ledger.groups=='bank OD AC' || ledger.groups=='bank OCC AC' || ledger.groups=='cash in hand'">
+        {{ledger.name}}
+      </md-option>
+    </ng-container>
+  </md-select>
+
+  <md-input-container>
+    <input required #firstAcInput mdInput placeholder="Party Name" [mdAutocomplete]="auto" (keyup)="filterLedger(firstAcInput.value)"
+      (blur)="selectPartyAccount(firstAcInput.value)">
+  </md-input-container>
+  <md-autocomplete #auto="mdAutocomplete">
+    <md-option *ngFor="let ledger of filteredLedger" [value]="ledger.name" (click)="selectPartyAccount(firstAcInput.value)">
+      <span>{{ ledger.name }}</span>
+    </md-option>
+  </md-autocomplete>
+
+  <md-input-container>
+    <input type="date" mdInput placeholder="Date" [(ngModel)]="voucherDate">
+  </md-input-container>
+</div>
+
+<br>
+
 <form (submit)="addRows()">
-  <div class="voucher-form" *ngFor="let row of rows; let i = index">
-    <md-select placeholder="Type" (change)="selectType($event,i)">
-      <md-option [value]="'credit'">Credit</md-option>
-      <md-option [value]="'debit'">Debit</md-option>
-    </md-select>
+  <button class="pull-right" md-button type="submit"><md-icon>add</md-icon></button><br><br>
+  <div class="sales-form" *ngFor="let row of rows; let i = index">
     <md-input-container>
-      <input required #firstAcInput mdInput placeholder="Account" [mdAutocomplete]="auto" (keyup)="filterLedger(firstAcInput.value)"
+      <input required #firstAcInput mdInput placeholder="Product" [mdAutocomplete]="auto" (keyup)="filterLedger(firstAcInput.value)"
         (blur)="selectLedger(firstAcInput.value, i)">
     </md-input-container>
     <md-autocomplete #auto="mdAutocomplete">
@@ -18,37 +39,45 @@
       </md-option>
     </md-autocomplete>
     <md-input-container>
-      <input #amountInput mdInput type="number" placeholder="Amount" required (change)="selectAmount(amountInput.value, i)" />
+      <input #rateInput mdInput type="number" placeholder="Rate" required (change)="rateChangeHandler(rateInput.value, i)" />
     </md-input-container>
-    <button md-button type="submit"><md-icon>add</md-icon></button>
+    <md-input-container>
+      <input #quantityInput mdInput type="number" placeholder="Quantity" (change)="quantityChangeHandler(quantityInput.value, i)"
+      />
+    </md-input-container>
+    <md-input-container>
+      <input #amountInput mdInput type="number" placeholder="Amount" readonly="readonly" [value]="amount[i]" />
+    </md-input-container>
     <hr>
   </div>
 </form>
+
 <div class="col-sm-12">
   <md-input-container style="width:100%">
     <input mdInput type="text" [(ngModel)]="narration" placeholder="Narration">
   </md-input-container>
 </div>
+
 <div class="col-sm-12 white-bg no-padding">
   <md-card>
+    <span style="color:red">{{error}}{{responseError}}</span>
     <div class="row text-center">
       <div class="col-sm-4">
-        <h3 class="md-title">Debit</h3>
+        <h3 class="md-title">Total Amount</h3>
         <md-input-container>
-          <input readonly="readonly" mdInput type="number" [(ngModel)]="totalDebit" />
+          <input readonly="readonly" mdInput type="number" [(ngModel)]="totalAmount" />
         </md-input-container>
       </div>
       <div class="col-sm-4">
-        <h3 class="md-title">Credit</h3>
+        <h3 class="md-title">No of Product</h3>
         <md-input-container>
-          <input readonly="readonly" mdInput type="number" [(ngModel)]="totalCredit" />
+          <input readonly="readonly" mdInput type="number" [value]="this.rows.length" />
         </md-input-container>
       </div>
       <div class="col-sm-4">
         <h3 class="md-title">Submit</h3>
-        <button (click)="addJournal()" class="form-button" [disabled]="checkTotal()" md-button><md-icon>check</md-icon></button>
+        <button class="form-button" (click)="createData()" [disabled]="validateData()" md-button><md-icon>check</md-icon></button>
       </div>
-      <span style="color:red">{{totalError}}</span>
     </div>
   </md-card>
 </div>

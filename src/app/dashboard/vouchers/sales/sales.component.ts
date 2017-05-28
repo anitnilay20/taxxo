@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, SimpleChange, EventEmitter } from '@angular/core';
 import { Ledgers, Voucher, User } from "../../model";
 import { MdSnackBar } from "@angular/material";
 import { VoucherService } from "../vouchers.service";
@@ -11,54 +11,21 @@ import { VoucherService } from "../vouchers.service";
 export class SalesComponent {
 	@Input() ledgers: Ledgers[];
 	@Input() filteredLedger: Ledgers[] = [];
-	vouchers: Voucher[] = [];
+	@Output() salesResponse: EventEmitter<any> = new EventEmitter<any>();
+	vouchers: any[] = [];
+	partyAccount: Ledgers;
 	firstAc: Ledgers[] = [];
+	rate: number[] = [];
+	quantity: number[] = [];
 	amount: number[] = [];
-	type: string[] = [];
-	narration: string;
-	error: string;
-	user: User;
+	narration: string = "  ";
+	paymentType: string;
+	totalAmount: number = 0;
 	rows: number[] = [1];
-	totalCredit: number = 0;
-	totalDebit: number = 0;
-	totalError: string;
+	error: string;
+	responseError: string;
+	user: User;
 	voucherDate: Date;
-
-	addJournal() {
-		let to_account: number[] = [];
-		for (let i = 0; i < this.firstAc.length; i++) {
-			if (this.type[i] == "credit") {
-				to_account.push(this.firstAc[i]['id'])
-			}
-		}
-		for (let i = 0; i < this.amount.length; i++) {
-			let dataObject: any = {};
-			if (this.type[i] == "credit") {
-				dataObject['credit_amount'] = this.amount[i];
-				dataObject['debit_amount'] = 0;
-			}
-
-			if (this.type[i] == "debit") {
-				dataObject['credit_amount'] = 0;
-				dataObject['debit_amount'] = this.amount[i];
-			}
-			dataObject['narration'] = this.narration;
-			dataObject['for_account'] = this.firstAc[i]['id'];
-			dataObject['to_Account'] = to_account;
-			dataObject['company'] = parseInt(localStorage.getItem("company"));
-			dataObject['date'] = this.voucherDate;
-			dataObject['added_by'] = parseInt(localStorage.getItem("user"))
-			let data = JSON.stringify(dataObject);
-			this.voucherService.addVoucher(data)
-				.subscribe(
-				Voucher => {
-					this.vouchers.push(Voucher);
-					this.snackbar.open('Added ' + this.rows.length + " journal entry", 'X')
-				},
-				error => { this.error = <any>error }
-				);
-		}
-	}
 
 	filterLedger(event: any) {
 		this.filteredLedger = [];
@@ -76,46 +43,105 @@ export class SalesComponent {
 		}
 	}
 
+	selectPartyAccount(query: string) {
+		for (let i = 0; i < this.ledgers.length; i++) {
+			if (query === this.ledgers[i]['name'])
+				this.partyAccount = this.ledgers[i];
+		}
+	}
+
+	selectType(event: any) {
+		this.paymentType = event['value'];
+	}
+
 	addRows() {
 		this.rows.push(1);
 	}
 
-	selectType(event: any, index: number) {
-		this.totalCredit = 0;
-		this.totalDebit = 0;
-		this.type[index] = event['value'];
+	rateChangeHandler(rateInput: number, i: number) {
+		this.rate[i] = rateInput;
+		this.amount[i] = rateInput * this.quantity[i];
+		this.calculateTotalAmount();
+	}
+
+	quantityChangeHandler(quantityInput: number, i: number) {
+		this.quantity[i] = quantityInput;
+		this.amount[i] = quantityInput * this.rate[i];
+		this.calculateTotalAmount();
+	}
+
+	calculateTotalAmount() {
+		this.totalAmount = 0;
 		for (let i = 0; i < this.amount.length; i++) {
-			if (this.type[i] == "credit") {
-				this.totalCredit += this.amount[i];
-			}
-			if (this.type[i] == "debit") {
-				this.totalDebit += this.amount[i];
-			}
+			this.totalAmount += this.amount[i];
 		}
 	}
 
-	selectAmount(value: any, index: number) {
-		this.totalCredit = 0;
-		this.totalDebit = 0;
-		this.amount[index] = parseInt(value);
-		for (let i = 0; i < this.amount.length; i++) {
-			if (this.type[i] == "credit") {
-				this.totalCredit = this.amount[i] + this.totalCredit;
-			}
-			if (this.type[i] == "debit") {
-				this.totalDebit += this.amount[i];
-			}
+	validateData() {
+		if (!this.paymentType) {
+			this.error = "Please select Payement Type";
+			return true;
 		}
+		if (!this.partyAccount) {
+			this.error = "Please enter Party Name";
+			return true;
+		}
+		if (!this.voucherDate) {
+			this.error = "Please Enter Date";
+			return true;
+		}
+		if (this.amount.length != this.firstAc.length || this.quantity.length != this.rate.length) {
+			this.error = "Please fill in All the details above";
+			return true;
+		}
+		this.error = ""
+		return false;
 	}
 
-	checkTotal() {
-		if (this.totalCredit == this.totalDebit) {
-			this.totalError = "";
-			return false;
+	createData() {
+		let dataObject: any = {};
+		let itemsObject: any = {};
+		let salesObject: any = {};
+		let itemsArray: any = [];
+		for (let i = 0; i < this.firstAc.length; i++) {
+			itemsObject['for_account'] = this.firstAc[i].id;
+			itemsObject['added_by'] = parseInt(localStorage.getItem('user'));
+			itemsObject['narration'] = this.narration;
+			itemsObject['debit_amount'] = 0;
+			itemsObject['credit_amount'] = this.amount[i];
+			itemsObject['company'] = parseInt(localStorage.getItem('company'));
+			itemsObject['to_Account'] = [this.partyAccount.id];
+			itemsObject['date'] = this.voucherDate;
+			itemsArray.push(itemsObject);
 		}
-		this.totalError = "Total of Credits not Equal to Total of Debits";
-		return true;
+		salesObject['party_name'] = this.partyAccount.id;
+		salesObject['date'] = this.voucherDate;
+		salesObject['payment_method'] = this.paymentType;
+		salesObject['total_amount'] = this.totalAmount;
+		salesObject['narration'] = this.narration;
+		salesObject['company'] = parseInt(localStorage.getItem('company'));
+		salesObject['added_by'] = parseInt(localStorage.getItem('user'));
+		dataObject['sales'] = salesObject;
+		dataObject['items'] = itemsArray;
+		let data = JSON.stringify(dataObject);
+		this.voucherService.addSales(data)
+			.subscribe(
+			Voucher => {
+				this.vouchers.push(Voucher);
+				this.salesResponse.next(Voucher);
+				this.snackbar.open('Added ' + this.rows.length + " Items in Sales", 'X')
+				this.error = '';
+			},
+			Error => {
+				let error = Error.replace(/["{}\[\]]/g, '');
+				error = error.replace(/[\:]/g, ' ');
+				error = error.replace(/400 - Bad Request/i, ' ');
+				this.responseError = error;
+			}
+			);
 	}
+
+	ngOnChanges(changes: SimpleChange) { }
 
 	public constructor(public snackbar: MdSnackBar, private voucherService: VoucherService) {
 

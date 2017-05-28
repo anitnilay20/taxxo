@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
-import { Company, Activity, TrialBalance, ProfitLoss, BalanceSheet } from '../model'
+import { Company, Activity, TrialBalance, ProfitLoss, BalanceSheet } from '../model';
+import { API_URL } from "../../../../config";
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 
 @Injectable()
 export class CompanyService {
-  private companyUrl = 'http://52.37.146.59/company/';
+  private companyUrl = API_URL + '/company/';
   constructor(private http: Http) { }
   private current_company = localStorage.getItem('company')
 
@@ -20,7 +21,7 @@ export class CompanyService {
   }
 
   getActivity(id: number): Observable<Activity[]> {
-    let url = 'http://52.37.146.59/activity/';
+    let url = API_URL + '/activity/';
     let headers = new Headers({ 'COMPANY': id })
     let option = new RequestOptions({ headers: headers });
     return this.http.get(url, option)
@@ -29,7 +30,7 @@ export class CompanyService {
   }
 
   getTrialBalance(id: number): Observable<TrialBalance[]> {
-    let url = 'http://52.37.146.59/ledgers/';
+    let url = API_URL + '/ledgers/';
     let headers = new Headers({ 'COMPANY': id })
     let option = new RequestOptions({ headers: headers });
     return this.http.get(url, option)
@@ -38,7 +39,7 @@ export class CompanyService {
   }
 
   getProfitLoss(id: number): Observable<ProfitLoss[]> {
-    let url = 'http://52.37.146.59/trialbalance/profitloss/';
+    let url = API_URL + '/trialbalance/profitloss/';
     let headers = new Headers({ 'COMPANY': id })
     let option = new RequestOptions({ headers: headers });
     return this.http.get(url, option)
@@ -57,7 +58,7 @@ export class CompanyService {
   }
 
   getBalanceSheet(id: number): Observable<BalanceSheet> {
-    let url = 'http://52.37.146.59/trialbalance/balancesheet/';
+    let url = API_URL + '/trialbalance/balancesheet/';
     let headers = new Headers({ 'COMPANY': id })
     let option = new RequestOptions({ headers: headers });
     return this.http.get(url, option)

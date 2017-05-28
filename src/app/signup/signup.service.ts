@@ -3,6 +3,7 @@ import { Observable } from 'rxjs/Observable';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { User } from '../dashboard/model';
 import { Subject } from 'rxjs/Subject';
+import { API_URL } from "../../../config";
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/Rx';
@@ -11,10 +12,9 @@ import 'rxjs/Rx';
 export class UserService {
     private user = new Subject<User>();
     user$ = this.user.asObservable();
-    private userUrl = 'http://52.37.146.59/customer/';
+    private userUrl = API_URL + '/customer/';
     public users: any = "ola";
     constructor(private http: Http) {
-
     }
 
     addUser(data: any): Observable<User> {
